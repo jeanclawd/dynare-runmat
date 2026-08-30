@@ -136,9 +136,26 @@ transpose requires a numeric, logical, or character value
 tensor literal rows must have consistent column counts        (12 files)
 ```
 
-A genuine limitation rather than over-strictness, also in that tail:
-`feval: function argument cannot be a comma-list expansion` (7 files), so
-`feval(f, args{:})` does not lower.
+A genuine limitation rather than over-strictness, also in that tail (7 files):
+
+```matlab
+function y = call(fs, i, a, b)
+y = feval(fs{i}, a, b);
+end
+```
+
+```
+error: feval: function argument cannot be a comma-list expansion
+id: RunMat:HirError
+```
+
+A brace index is treated as a comma-list expansion even when the index is a
+scalar, so a function selected out of a cell array cannot be `feval`'d. This is
+how Dynare dispatches per-block model functions
+(`feval(funcs{blk}, ...)`). Note that `feval(f, args{:})` — expansion in the
+*argument* position — works fine; it is specifically the function position.
+
+Unlike the checker gaps above, this one fails at run time too.
 
 Two consequences:
 
