@@ -1,0 +1,676 @@
+{
+  "suite": "/root/Projects/dynare-runmat/tests/conformance",
+  "total": 74,
+  "totals": {
+    "pass": 53,
+    "xpass": 1,
+    "fail": 10,
+    "xfail": 10
+  },
+  "working": 54,
+  "conformance_pct": 72.97,
+  "by_category": {
+    "cells": {
+      "pass": 4,
+      "xpass": 1,
+      "fail": 2
+    },
+    "errors": {
+      "pass": 3,
+      "xfail": 2
+    },
+    "functions": {
+      "pass": 10,
+      "fail": 1
+    },
+    "indexing": {
+      "pass": 7
+    },
+    "linalg": {
+      "pass": 9,
+      "xfail": 5
+    },
+    "misc": {
+      "pass": 5,
+      "fail": 3
+    },
+    "sparse": {
+      "pass": 2,
+      "fail": 2
+    },
+    "strings": {
+      "pass": 6,
+      "fail": 2
+    },
+    "structs": {
+      "pass": 7,
+      "xfail": 3
+    }
+  },
+  "results": [
+    {
+      "id": "cells/cell_grow_by_index",
+      "category": "cells",
+      "status": "pass",
+      "expected": "2 y",
+      "actual": "2 y",
+      "returncode": 0
+    },
+    {
+      "id": "cells/cell_index_brace",
+      "category": "cells",
+      "status": "pass",
+      "expected": "two 2",
+      "actual": "two 2",
+      "returncode": 0
+    },
+    {
+      "id": "cells/cellfun_uniform_false",
+      "category": "cells",
+      "status": "pass",
+      "expected": "6",
+      "actual": "6",
+      "returncode": 0
+    },
+    {
+      "id": "cells/cellfun_uniform_true",
+      "category": "cells",
+      "status": "pass",
+      "expected": "12",
+      "actual": "12",
+      "returncode": 0
+    },
+    {
+      "id": "cells/cs_list_expansion",
+      "category": "cells",
+      "status": "xpass",
+      "expected": "3",
+      "actual": "3",
+      "returncode": 0,
+      "xfail_reason": "comma-separated list expansion of c{:} into function arguments"
+    },
+    {
+      "id": "cells/iscellstr_and_ismember",
+      "category": "cells",
+      "status": "fail",
+      "expected": "1 1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: ismember: unsupported input type CharArray(CharArray { data: ['b', 'b'], shape: [1, 2], rows: 1, cols: 2 }); expected numeric or logical values\nid: RunMat:ismember:Internal\n--> tests/conformance/cells/iscellstr_and_ismember.m:2:34\n2 | fprintf('%d %d\\n', iscellstr(c), ismember('bb', c));\n| ^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/cells/iscellstr_and_ismember.m @ tests/conformance/cells/iscellstr_and_ismember.m:2:34"
+    },
+    {
+      "id": "cells/strjoin_strsplit",
+      "category": "cells",
+      "status": "fail",
+      "expected": "a-b-c",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: cannot convert to string array: Cell(CellArray { data: [String(\"a\"), String(\"b\"), String(\"c\")], shape: [1, 3], rows: 1, cols: 3 })\nid: RunMat:RuntimeError\n--> tests/conformance/cells/strjoin_strsplit.m:2:17\n2 | fprintf('%s\\n', strjoin(p, '-'));\n| ^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/cells/strjoin_strsplit.m @ tests/conformance/cells/strjoin_strsplit.m:2:17"
+    },
+    {
+      "id": "errors/error_message_caught",
+      "category": "errors",
+      "status": "pass",
+      "expected": "boom",
+      "actual": "boom",
+      "returncode": 0
+    },
+    {
+      "id": "errors/error_stack_field",
+      "category": "errors",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: isprop\nid: RunMat:UndefinedFunction\n--> tests/conformance/errors/error_stack_field.m:5:40\n5 | fprintf('%d\\n', isfield(e, 'stack') || isprop(e, 'stack'));\n| ^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/errors/error_stack_field.m @ tests/conformance/errors/error_stack_field.m:5:40",
+      "xfail_reason": "exception object exposing a stack field"
+    },
+    {
+      "id": "errors/error_with_identifier",
+      "category": "errors",
+      "status": "pass",
+      "expected": "My:id|text 5",
+      "actual": "My:id|text 5",
+      "returncode": 0
+    },
+    {
+      "id": "errors/mexception_construct",
+      "category": "errors",
+      "status": "xfail",
+      "expected": "A:b",
+      "actual": "RunMat:UndefinedFunction",
+      "returncode": 0,
+      "stderr": "",
+      "xfail_reason": "MException object construction/throw"
+    },
+    {
+      "id": "errors/rethrow_preserves_id",
+      "category": "errors",
+      "status": "pass",
+      "expected": "X:y",
+      "actual": "X:y",
+      "returncode": 0
+    },
+    {
+      "id": "functions/anonymous_closure_capture",
+      "category": "functions",
+      "status": "pass",
+      "expected": "6",
+      "actual": "6",
+      "returncode": 0
+    },
+    {
+      "id": "functions/feval_by_name",
+      "category": "functions",
+      "status": "pass",
+      "expected": "7",
+      "actual": "7",
+      "returncode": 0
+    },
+    {
+      "id": "functions/global_shared",
+      "category": "functions",
+      "status": "pass",
+      "expected": "8",
+      "actual": "8",
+      "returncode": 0
+    },
+    {
+      "id": "functions/multiple_local_functions",
+      "category": "functions",
+      "status": "pass",
+      "expected": "21",
+      "actual": "21",
+      "returncode": 0
+    },
+    {
+      "id": "functions/nargin_default",
+      "category": "functions",
+      "status": "pass",
+      "expected": "11",
+      "actual": "11",
+      "returncode": 0
+    },
+    {
+      "id": "functions/nargout_aware",
+      "category": "functions",
+      "status": "pass",
+      "expected": "2 99",
+      "actual": "2 99",
+      "returncode": 0
+    },
+    {
+      "id": "functions/persistent_counter",
+      "category": "functions",
+      "status": "pass",
+      "expected": "3",
+      "actual": "3",
+      "returncode": 0
+    },
+    {
+      "id": "functions/recursive_call",
+      "category": "functions",
+      "status": "pass",
+      "expected": "120",
+      "actual": "120",
+      "returncode": 0
+    },
+    {
+      "id": "functions/str2func_roundtrip",
+      "category": "functions",
+      "status": "fail",
+      "expected": "12",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: (x) x * 3\nid: RunMat:UndefinedFunction\n--> tests/conformance/functions/str2func_roundtrip.m:2:17\n2 | fprintf('%d\\n', h(4));\n| ^^^^\ncallstack:\ntests/conformance/functions/str2func_roundtrip.m @ tests/conformance/functions/str2func_roundtrip.m:2:17"
+    },
+    {
+      "id": "functions/varargin_count",
+      "category": "functions",
+      "status": "pass",
+      "expected": "3",
+      "actual": "3",
+      "returncode": 0
+    },
+    {
+      "id": "functions/varargout_two",
+      "category": "functions",
+      "status": "pass",
+      "expected": "1 2",
+      "actual": "1 2",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/deletion_by_empty",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "4 3",
+      "actual": "4 3",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/end_in_range",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "10 8",
+      "actual": "10 8",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/find_multiple_outputs",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "2 3",
+      "actual": "2 3",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/implicit_expansion",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "11 22",
+      "actual": "11 22",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/logical_indexing",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "7",
+      "actual": "7",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/repmat_and_colon",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "4 6",
+      "actual": "4 6",
+      "returncode": 0
+    },
+    {
+      "id": "indexing/reshape_permute",
+      "category": "indexing",
+      "status": "pass",
+      "expected": "6 3",
+      "actual": "6 3",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/backslash_square",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "0.0909\n0.6364",
+      "actual": "0.0909\n0.6364",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/chol_upper",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/eig_identity_residual",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/eig_sorted",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "2.0\n3.0",
+      "actual": "2.0\n3.0",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/expm_zero",
+      "category": "linalg",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: expm\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/expm_zero.m:2:1\n2 | E = expm(zeros(2));\n| ^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/expm_zero.m @ tests/conformance/linalg/expm_zero.m:2:1",
+      "xfail_reason": "expm() is not implemented in RunMat 0.6.2"
+    },
+    {
+      "id": "linalg/kron_shape",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "2 2",
+      "actual": "2 2",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/lu_residual",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/norm_cond_rank",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "5.0 1",
+      "actual": "5.0 1",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/ordqz_reordering",
+      "category": "linalg",
+      "status": "xfail",
+      "expected": "2",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: qz\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/ordqz_reordering.m:4:1\n4 | [AA, BB, Q, Z] = qz(A, B);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/ordqz_reordering.m @ tests/conformance/linalg/ordqz_reordering.m:4:1",
+      "xfail_reason": "ordqz() missing \u2014 required to split stable/unstable roots (Blanchard-Kahn)"
+    },
+    {
+      "id": "linalg/pinv_null",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "2 1",
+      "actual": "2 1",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/qz_generalized_schur",
+      "category": "linalg",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: qz\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/qz_generalized_schur.m:4:1\n4 | [AA, BB, Q, Z] = qz(A, B);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/qz_generalized_schur.m @ tests/conformance/linalg/qz_generalized_schur.m:4:1",
+      "xfail_reason": "qz() missing \u2014 this is Dynare's first-order perturbation solver"
+    },
+    {
+      "id": "linalg/schur_decomposition",
+      "category": "linalg",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: schur\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/schur_decomposition.m:3:1\n3 | [U, T] = schur(A);\n| ^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/schur_decomposition.m @ tests/conformance/linalg/schur_decomposition.m:3:1",
+      "xfail_reason": "schur() is not implemented in RunMat 0.6.2"
+    },
+    {
+      "id": "linalg/svd_descending",
+      "category": "linalg",
+      "status": "pass",
+      "expected": "4.0\n3.0",
+      "actual": "4.0\n3.0",
+      "returncode": 0
+    },
+    {
+      "id": "linalg/sylvester_solve",
+      "category": "linalg",
+      "status": "xfail",
+      "expected": "2",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: sylvester\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/sylvester_solve.m:2:1\n2 | X = sylvester([1 0; 0 2], [3 0; 0 4], [1 1; 1 1]);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/sylvester_solve.m @ tests/conformance/linalg/sylvester_solve.m:2:1",
+      "xfail_reason": "sylvester() missing \u2014 used for second-order solution terms"
+    },
+    {
+      "id": "misc/deal_multiple",
+      "category": "misc",
+      "status": "pass",
+      "expected": "1 2",
+      "actual": "1 2",
+      "returncode": 0
+    },
+    {
+      "id": "misc/eval_simple",
+      "category": "misc",
+      "status": "fail",
+      "expected": "6",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: undefined variable 'w'\nid: RunMat:UndefinedVariable\n--> tests/conformance/misc/eval_simple.m:2:17\n2 | fprintf('%d\\n', w);\n| ^"
+    },
+    {
+      "id": "misc/exist_variable_vs_builtin",
+      "category": "misc",
+      "status": "pass",
+      "expected": "1 0",
+      "actual": "1 0",
+      "returncode": 0
+    },
+    {
+      "id": "misc/inputname_free_call",
+      "category": "misc",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "id": "misc/isa_and_class",
+      "category": "misc",
+      "status": "pass",
+      "expected": "double 1",
+      "actual": "double 1",
+      "returncode": 0
+    },
+    {
+      "id": "misc/num_to_logical_short_circuit",
+      "category": "misc",
+      "status": "pass",
+      "expected": "ok",
+      "actual": "ok",
+      "returncode": 0
+    },
+    {
+      "id": "misc/switch_cell_case",
+      "category": "misc",
+      "status": "fail",
+      "expected": "BC",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: cannot convert CharArray(CharArray { data: ['c'], shape: [1, 1], rows: 1, cols: 1 }) to f64\nid: RunMat:RuntimeError\n--> tests/conformance/misc/switch_cell_case.m:1:1\n1 | x = 'c';\n| ^\ncallstack:\ntests/conformance/misc/switch_cell_case.m @ tests/conformance/misc/switch_cell_case.m:1:1"
+    },
+    {
+      "id": "misc/switch_on_string",
+      "category": "misc",
+      "status": "fail",
+      "expected": "B",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: cannot convert CharArray(CharArray { data: ['b'], shape: [1, 1], rows: 1, cols: 1 }) to f64\nid: RunMat:RuntimeError\n--> tests/conformance/misc/switch_on_string.m:1:1\n1 | x = 'b';\n| ^\ncallstack:\ntests/conformance/misc/switch_on_string.m @ tests/conformance/misc/switch_on_string.m:1:1"
+    },
+    {
+      "id": "sparse/issparse_speye",
+      "category": "sparse",
+      "status": "pass",
+      "expected": "1 3",
+      "actual": "1 3",
+      "returncode": 0
+    },
+    {
+      "id": "sparse/sparse_backslash",
+      "category": "sparse",
+      "status": "fail",
+      "expected": "1.0\n1.0",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: mldivide: unsupported input type SparseTensor(SparseTensor { rows: 2, cols: 2, col_ptrs: [0, 1, 3], row_indices: [0, 0, 1], storage: F64([1.0, 1.0, 1.0]) }); expected numeric or logical values\nid: RunMat:mldivide:InvalidInput\n--> tests/conformance/sparse/sparse_backslash.m:3:1\n3 | x = S \\ b;\n| ^^^^^^^^^\ncallstack:\ntests/conformance/sparse/sparse_backslash.m @ tests/conformance/sparse/sparse_backslash.m:3:1"
+    },
+    {
+      "id": "sparse/sparse_construct_full",
+      "category": "sparse",
+      "status": "pass",
+      "expected": "3 4 2",
+      "actual": "3 4 2",
+      "returncode": 0
+    },
+    {
+      "id": "sparse/sparse_matmul",
+      "category": "sparse",
+      "status": "fail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: mtimes: unsupported operand types\nid: RunMat:mtimes:InvalidInput\n--> tests/conformance/sparse/sparse_matmul.m:2:27\n2 | fprintf('%d\\n', norm(full(S * S) - eye(3)) < 1e-12);\n| ^^^^^\ncallstack:\ntests/conformance/sparse/sparse_matmul.m @ tests/conformance/sparse/sparse_matmul.m:2:27"
+    },
+    {
+      "id": "strings/num2str_default",
+      "category": "strings",
+      "status": "pass",
+      "expected": "3.5 42",
+      "actual": "3.5 42",
+      "returncode": 0
+    },
+    {
+      "id": "strings/regexp_tokens",
+      "category": "strings",
+      "status": "fail",
+      "expected": "x 12",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Cell index out of bounds\nid: RunMat:CellIndexOutOfBounds\n--> tests/conformance/strings/regexp_tokens.m:2:20\n2 | fprintf('%s %s\\n', t{1}{1}, t{1}{2});\n| ^^^^\ncallstack:\ntests/conformance/strings/regexp_tokens.m @ tests/conformance/strings/regexp_tokens.m:2:20"
+    },
+    {
+      "id": "strings/regexprep_basic",
+      "category": "strings",
+      "status": "pass",
+      "expected": "baa",
+      "actual": "baa",
+      "returncode": 0
+    },
+    {
+      "id": "strings/sprintf_float_formats",
+      "category": "strings",
+      "status": "fail",
+      "expected": "3.142|1.234500e+03|0.0001",
+      "actual": "3.142|1.234500e3|0.0001",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "id": "strings/sprintf_vector_cycling",
+      "category": "strings",
+      "status": "pass",
+      "expected": "1-2-3-",
+      "actual": "1-2-3-",
+      "returncode": 0
+    },
+    {
+      "id": "strings/str2double_and_nan",
+      "category": "strings",
+      "status": "pass",
+      "expected": "1 1",
+      "actual": "1 1",
+      "returncode": 0
+    },
+    {
+      "id": "strings/strrep_strtrim",
+      "category": "strings",
+      "status": "pass",
+      "expected": "[a+b]",
+      "actual": "[a+b]",
+      "returncode": 0
+    },
+    {
+      "id": "strings/upper_lower_strcmpi",
+      "category": "strings",
+      "status": "pass",
+      "expected": "AB 1",
+      "actual": "AB 1",
+      "returncode": 0
+    },
+    {
+      "id": "structs/autoviv_after_struct",
+      "category": "structs",
+      "status": "pass",
+      "expected": "3",
+      "actual": "3",
+      "returncode": 0
+    },
+    {
+      "id": "structs/autoviv_nested",
+      "category": "structs",
+      "status": "xfail",
+      "expected": "2",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> tests/conformance/structs/autoviv_nested.m:2:1\n2 | s.a.b = 2;\n| ^^^^^^^^^\ncallstack:\ntests/conformance/structs/autoviv_nested.m @ tests/conformance/structs/autoviv_nested.m:2:1",
+      "xfail_reason": "nested auto-vivification from an undefined base variable"
+    },
+    {
+      "id": "structs/autoviv_scalar",
+      "category": "structs",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> tests/conformance/structs/autoviv_scalar.m:2:1\n2 | s.a = 1;\n| ^^^^^^^\ncallstack:\ntests/conformance/structs/autoviv_scalar.m @ tests/conformance/structs/autoviv_scalar.m:2:1",
+      "xfail_reason": "RunMat requires the struct to exist before a field is assigned"
+    },
+    {
+      "id": "structs/dynamic_fieldname_set",
+      "category": "structs",
+      "status": "pass",
+      "expected": "9",
+      "actual": "9",
+      "returncode": 0
+    },
+    {
+      "id": "structs/fieldnames_order",
+      "category": "structs",
+      "status": "pass",
+      "expected": "b\na",
+      "actual": "b\na",
+      "returncode": 0
+    },
+    {
+      "id": "structs/getfield_setfield",
+      "category": "structs",
+      "status": "pass",
+      "expected": "5",
+      "actual": "5",
+      "returncode": 0
+    },
+    {
+      "id": "structs/isfield_and_rmfield",
+      "category": "structs",
+      "status": "pass",
+      "expected": "0 1",
+      "actual": "0 1",
+      "returncode": 0
+    },
+    {
+      "id": "structs/struct_array_numel",
+      "category": "structs",
+      "status": "xfail",
+      "expected": "2 2",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> tests/conformance/structs/struct_array_numel.m:2:1\n2 | s(1).a = 1;\n| ^^^^^^^^^^\ncallstack:\ntests/conformance/structs/struct_array_numel.m @ tests/conformance/structs/struct_array_numel.m:2:1",
+      "xfail_reason": "struct array built by indexed auto-vivification"
+    },
+    {
+      "id": "structs/struct_passed_to_function",
+      "category": "structs",
+      "status": "pass",
+      "expected": "5",
+      "actual": "5",
+      "returncode": 0
+    },
+    {
+      "id": "structs/struct_returned_modified",
+      "category": "structs",
+      "status": "pass",
+      "expected": "8",
+      "actual": "8",
+      "returncode": 0
+    }
+  ],
+  "elapsed_sec": 30.0
+}
