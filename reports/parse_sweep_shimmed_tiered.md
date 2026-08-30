@@ -12,6 +12,19 @@
   - **132** — Unclassified
 
 
+## Upper bound on what each blocker is worth
+
+Each file reports only its first error, so a file counted here may
+have further problems behind it. Read these as an ordering, not a
+promise.
+
+| First blocker | Files | Clean rate if fully fixed |
+| --- | ---: | ---: |
+| definite assignment (includes `global`) | 361 | 62% |
+| undefined name (often a missing builtin) | 188 | 46% |
+| brace indexing on a non-cell | 88 | 36% |
+| syntax | 57 | 33% |
+
 ## Syntax — RunMat cannot read the file (58)
 
 - 13 x — expected identifier

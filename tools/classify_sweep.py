@@ -94,6 +94,37 @@ def main() -> int:
             print(f"  - **{n}** — {TIER_LABEL[t]}")
     print()
 
+    # Rough payoff estimate. Each file records only its *first* error, so a file
+    # counted against one blocker may well have others behind it. These are
+    # therefore upper bounds on what fixing a single thing would unlock, useful
+    # for ordering work rather than for promising an outcome.
+    print("\n## Upper bound on what each blocker is worth\n")
+    print("Each file reports only its first error, so a file counted here may")
+    print("have further problems behind it. Read these as an ordering, not a")
+    print("promise.\n")
+    print("| First blocker | Files | Clean rate if fully fixed |")
+    print("| --- | ---: | ---: |")
+    groups = {
+        "definite assignment (includes `global`)": STATIC_ANALYSIS,
+        "undefined name (often a missing builtin)": re.compile(r"undefined variable", re.I),
+        "brace indexing on a non-cell": re.compile(r"brace indexing requires", re.I),
+        "syntax": SYNTAX,
+    }
+    counted = set()
+    rows_out = []
+    for label, pattern in groups.items():
+        n = 0
+        for i, entry in enumerate(data["results"]):
+            if entry.get("ok") or i in counted:
+                continue
+            if pattern.search(entry.get("message") or ""):
+                counted.add(i)
+                n += 1
+        if n:
+            rows_out.append((label, n))
+    for label, n in sorted(rows_out, key=lambda r: -r[1]):
+        print(f"| {label} | {n} | {100.0 * (clean + n) / total:.0f}% |")
+
     for t in TIER_ORDER:
         rows = tiers[t]
         if not rows:
