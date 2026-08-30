@@ -36,6 +36,40 @@ terminate with `end` or all omit it. Both forms are legal.
 
 ---
 
+## P0 — measurement caveat: `runmat check` is stricter than `runmat run`
+
+RunMat's checker enforces **definite assignment**, a rule MATLAB does not have.
+
+```matlab
+function y = g(x)
+if x > 0
+    y = 1;
+end
+y = y + 0;
+end
+```
+
+```
+error[RM-MIR0002]: local may be read before assignment on some control-flow paths
+ --> cf2.m:5:1
+  = help: assign this local on every control-flow path before reading it
+```
+
+But `g(5)` runs and returns `1`. In MATLAB, reading a maybe-unassigned local is
+an error only if that path is actually taken; RunMat rejects the function ahead
+of time. This pattern — assign in one branch, read after — is ordinary MATLAB
+and common in Dynare.
+
+Two consequences:
+
+1. It is a real compatibility gap. A tool that refuses to load valid MATLAB is
+   a blocker even when the runtime would have coped.
+2. It distorts any sweep built on `runmat check`. **355 of the shimmed tree's
+   failures are this rule**, not syntax. `tools/classify_sweep.py` separates
+   the tiers so the headline number does not overstate the damage.
+
+---
+
 ## P1 — blocks running ordinary Dynare code
 
 ### 2. `switch` on a string errors
@@ -92,6 +126,29 @@ h(4)    % error: Undefined function: (x) x * 3
 ```
 
 The string is treated as a function *name* rather than parsed as a lambda.
+
+---
+
+## P1 — `NaN(...)` and `Inf(...)` are not callable, but `nan(...)` and `inf(...)` are
+
+```matlab
+nan(2, 3)     % works — 2x3 of NaN
+NaN(2, 3)     % error: Undefined function: NaN
+inf(2, 2)     % works
+Inf(2, 2)     % error: Undefined function: Inf
+disp(NaN)     % works — the bare constant is fine
+```
+
+In MATLAB the capitalized and lowercase spellings are the same function. In
+RunMat the capitalized ones resolve as constants only, so calling them with
+size arguments fails.
+
+**188 Dynare files use the capitalized form.** It is the single cause of every
+runtime-probe failure so far: `dyn_vech`, `dyn_unvech`, and their round-trip all
+die on `Vector = NaN(n*(n+1)/2, 1)`.
+
+This looks like the cheapest high-value fix on the list — a builtin-resolution
+alias, not a semantic change.
 
 ---
 

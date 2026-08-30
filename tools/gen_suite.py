@@ -267,6 +267,27 @@ TESTS = [
      "[r, c] = find([0 1; 1 0]);\nfprintf('%d %d\\n', numel(r), sum(c));",
      "2 3", None),
 
+    # --------------------------------------------------------- constructors
+    ("constructors", "nan_lowercase_sized",
+     "fprintf('%d %d\\n', size(nan(2, 3), 1), size(nan(2, 3), 2));",
+     "2 3", None),
+    ("constructors", "NaN_capitalized_sized",
+     "fprintf('%d %d\\n', size(NaN(2, 3), 1), size(NaN(2, 3), 2));",
+     "2 3",
+     "NaN(...) is not callable as a constructor though nan(...) is; "
+     "188 Dynare files use the capitalized spelling"),
+    ("constructors", "Inf_capitalized_sized",
+     "fprintf('%d\\n', size(Inf(2, 2), 1));",
+     "2",
+     "Inf(...) is not callable as a constructor though inf(...) is"),
+    ("constructors", "NaN_bare_constant",
+     "fprintf('%d\\n', isnan(NaN));",
+     "1", None),
+    ("constructors", "zeros_ones_true_cell",
+     "fprintf('%d %d %d %d\\n', size(zeros(2, 3), 2), size(ones(2), 1), "
+     "size(true(2), 1), size(cell(2), 1));",
+     "3 2 2 2", None),
+
     # ------------------------------------------------------------------ misc
     ("misc", "switch_on_string",
      "x = 'b';\nswitch x\ncase 'a'\nfprintf('A\\n');\ncase 'b'\nfprintf('B\\n');\n"

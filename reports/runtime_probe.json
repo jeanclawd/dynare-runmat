@@ -1,0 +1,113 @@
+{
+  "tree": "/root/Projects/dynare-runmat/build/shimmed",
+  "total": 10,
+  "passed": 7,
+  "pass_rate": 70.0,
+  "results": [
+    {
+      "probe": "dynsec2hms",
+      "status": "pass",
+      "functions": [
+        "dynsec2hms.m"
+      ],
+      "expected": "1h02m05s",
+      "actual": "1h02m05s",
+      "returncode": 0
+    },
+    {
+      "probe": "dynsec2hms_zero",
+      "status": "pass",
+      "functions": [
+        "dynsec2hms.m"
+      ],
+      "expected": "0h00m00s",
+      "actual": "0h00m00s",
+      "returncode": 0
+    },
+    {
+      "probe": "dyn_vech",
+      "status": "fail",
+      "functions": [
+        "dyn_vech.m"
+      ],
+      "expected": "1\n2\n3",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: NaN\nid: RunMat:UndefinedFunction\ncallstack:\ndriver.m"
+    },
+    {
+      "probe": "dyn_unvech",
+      "status": "fail",
+      "functions": [
+        "dyn_unvech.m"
+      ],
+      "expected": "1 2 2 3",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: NaN\nid: RunMat:UndefinedFunction\n--> driver.m:2:50\n2 | fprintf('%d %d %d %d\\n', M(1,1), M(1,2), M(2,1), M(2,2));\n| ^^^^^^\ncallstack:\ndriver.m @ driver.m:2:50"
+    },
+    {
+      "probe": "vech_roundtrip",
+      "status": "fail",
+      "functions": [
+        "dyn_vech.m",
+        "dyn_unvech.m"
+      ],
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: Undefined function: NaN\nid: RunMat:UndefinedFunction\n--> driver.m:3:1\n3 | fprintf('%d\\n', isequal(A, B));\n| ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ndriver.m @ driver.m:3:1"
+    },
+    {
+      "probe": "cellofchararraymaxlength",
+      "status": "pass",
+      "functions": [
+        "cellofchararraymaxlength.m"
+      ],
+      "expected": "4",
+      "actual": "4",
+      "returncode": 0
+    },
+    {
+      "probe": "exactstrrep",
+      "status": "pass",
+      "functions": [
+        "exactstrrep.m"
+      ],
+      "expected": "a bc X",
+      "actual": "a bc X",
+      "returncode": 0
+    },
+    {
+      "probe": "dynare_squeeze_row",
+      "status": "pass",
+      "functions": [
+        "dynare_squeeze.m"
+      ],
+      "expected": "3 1",
+      "actual": "3 1",
+      "returncode": 0
+    },
+    {
+      "probe": "dynare_squeeze_col",
+      "status": "pass",
+      "functions": [
+        "dynare_squeeze.m"
+      ],
+      "expected": "3 1",
+      "actual": "3 1",
+      "returncode": 0
+    },
+    {
+      "probe": "skipline",
+      "status": "pass",
+      "functions": [
+        "skipline.m"
+      ],
+      "expected": "done",
+      "actual": "done",
+      "returncode": 0
+    }
+  ],
+  "elapsed_sec": 4.1
+}
