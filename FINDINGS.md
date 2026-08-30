@@ -125,6 +125,21 @@ one story: **`runmat check` enforces a static type discipline the language does
 not have.** They are the three largest failure buckets in the sweep, and in
 every case the code runs correctly.
 
+The long tail says the same thing in smaller numbers — each of these is a
+static proof failing on code whose types are only known at runtime:
+
+```
+index for dimension 2 is outside the proven bound 0
+operator is not defined for the proven operand value category
+right-division column dimensions 1 and 2 do not agree
+transpose requires a numeric, logical, or character value
+tensor literal rows must have consistent column counts        (12 files)
+```
+
+A genuine limitation rather than over-strictness, also in that tail:
+`feval: function argument cannot be a comma-list expansion` (7 files), so
+`feval(f, args{:})` does not lower.
+
 Two consequences:
 
 1. It is a real compatibility gap. A tool that refuses to load valid MATLAB is
