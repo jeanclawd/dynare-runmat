@@ -1,12 +1,12 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/conformance",
-  "total": 99,
+  "total": 102,
   "totals": {
-    "pass": 73,
-    "xfail": 26
+    "pass": 75,
+    "xfail": 27
   },
-  "working": 73,
-  "conformance_pct": 73.74,
+  "working": 75,
+  "conformance_pct": 73.53,
   "by_category": {
     "cells": {
       "pass": 5,
@@ -39,7 +39,8 @@
       "xfail": 3
     },
     "multifile": {
-      "pass": 5
+      "pass": 7,
+      "xfail": 1
     },
     "printf": {
       "xfail": 4,
@@ -900,6 +901,26 @@
       "multifile": true
     },
     {
+      "id": "multifile/exist_codes",
+      "category": "multifile",
+      "status": "xfail",
+      "expected": "2 7 1 0",
+      "actual": "3 7 1 0",
+      "returncode": 0,
+      "multifile": true,
+      "stderr": "",
+      "xfail_reason": "exist() returns 3 (MEX-file) for a plain file where MATLAB returns 2"
+    },
+    {
+      "id": "multifile/file_io",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "[hi 5]\n42\n0",
+      "actual": "[hi 5]\n42\n0",
+      "returncode": 0,
+      "multifile": true
+    },
+    {
       "id": "multifile/package_call",
       "category": "multifile",
       "status": "pass",
@@ -907,7 +928,16 @@
       "actual": "5\n10",
       "returncode": 0,
       "multifile": true
+    },
+    {
+      "id": "multifile/rng_reproducible",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "1 1",
+      "actual": "1 1",
+      "returncode": 0,
+      "multifile": true
     }
   ],
-  "elapsed_sec": 34.5
+  "elapsed_sec": 35.3
 }

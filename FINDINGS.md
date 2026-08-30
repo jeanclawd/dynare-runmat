@@ -267,7 +267,22 @@ a non-integer. RunMat prints `fprintf('%d', 2.5)` as `2`; MATLAB is documented
 to switch to exponential notation for non-integer values given an integer
 conversion. Flagged rather than asserted.
 
-### 11. `regexp(..., 'tokens')` returns the wrong nesting
+### 11. `exist` returns the wrong code for files
+
+```matlab
+exist('data.txt', 'file')   % MATLAB 2, RunMat 3
+exist('some.m', 'file')     % MATLAB 2, RunMat 3
+exist('sub', 'dir')         % 7 — correct
+exist('q', 'var')           % 1 — correct
+exist('nope.txt', 'file')   % 0 — correct
+```
+
+MATLAB's code 2 means "file"; 3 means "MEX or DLL". RunMat returns 3 for
+ordinary files, so `exist(f) == 2` guards fail. Dynare has 5 such comparisons.
+The directory, variable, and not-found codes are all right — only the file case
+is off.
+
+### 12. `regexp(..., 'tokens')` returns the wrong nesting
 
 ```matlab
 t = regexp('x=12', '(\w+)=(\d+)', 'tokens');
@@ -298,6 +313,19 @@ reimplementation to fall over, and none of them did:
 Complex support mattering more than it looks: DSGE transition matrices have
 complex eigenvalues in general, and the Blanchard-Kahn check counts how many
 have modulus greater than one. `sum(abs(eig(A)) > 1)` gives the right answer.
+
+File I/O and RNG also hold up, which matters for estimation:
+
+| Feature | Status |
+| --- | --- |
+| `fopen` / `fprintf` / `fclose` / `fileread` | works |
+| `save` / `load` round-trip through a `.mat` | works |
+| `mkdir`, `dir`, `delete` | works |
+| `rng(seed)` reproducibility for `rand` and `randn` | works |
+
+Reproducible draws under a fixed seed are a precondition for Dynare's
+Metropolis-Hastings estimation being verifiable at all, so this one is load-
+bearing too.
 
 Dynare has 11 `classdef` files and a large number of `+package` directories, so
 this removes a whole category of risk. `@dprior` itself currently fails

@@ -67,18 +67,20 @@ is not callable, though `nan(n,m)` is.
 
 ### Semantic conformance
 
-99 hand-written cases across structs, cells, functions, strings, constructors,
+102 hand-written cases across structs, cells, functions, strings, constructors,
 complex arithmetic, printf formats, dense and sparse linear algebra, error
-handling, indexing, control flow, and multi-file structure. Each case pins the exact output MATLAB produces; numeric
+handling, indexing, control flow, file I/O, RNG reproducibility, and multi-file
+structure. Each case pins the exact output MATLAB produces; numeric
 cases assert a mathematical identity rather than a text format.
 
-**73 pass, 26 are tracked known gaps, 0 unexpected failures.**
+**75 pass, 27 are tracked known gaps, 0 unexpected failures.**
 
 Most cases are one file. Features that cannot be — `classdef`, `+package`
 namespaces, cross-file resolution — are directories holding a `main.m` plus
-support files, copied to a temp dir and run there. All five structural cases
-pass, including `classdef` inside an `@dir`, which is exactly how Dynare's
-`@dprior` is written.
+support files, copied to a temp dir and run there — which also keeps cases
+that write files from littering the repo. All five structural cases pass,
+including `classdef` inside an `@dir`, exactly how Dynare's `@dprior` is
+written.
 
 Known gaps are marked `xfail` **with a reason**, so the suite stays green
 against today's RunMat and any *new* breakage — or any *fix* (reported as

@@ -1,8 +1,8 @@
 # RunMat semantic conformance (Dynare-relevant features)
 
-- Cases: **99**
-- Working (pass + xpass): **73** (73.74%)
-- Failing: **0**, known gaps (xfail): **26**
+- Cases: **102**
+- Working (pass + xpass): **75** (73.53%)
+- Failing: **0**, known gaps (xfail): **27**
 
 ## By category
 
@@ -45,8 +45,9 @@
 - ⚠️ `misc/switch_cell_case` switch on a char value coerces the operand to f64 and errors
 - ⚠️ `misc/switch_on_string` switch on a char value coerces the operand to f64 and errors
 
-### multifile — 5/5
+### multifile — 7/8
 
+- ⚠️ `multifile/exist_codes` exist() returns 3 (MEX-file) for a plain file where MATLAB returns 2
 
 ### printf — 3/7
 
