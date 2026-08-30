@@ -540,27 +540,30 @@ indexing, `end` in ranges, deletion by `[]`, implicit expansion, `reshape`,
 
 Ordered by payoff per unit of work, not by severity alone.
 
-1. **Alias `NaN(...)` / `Inf(...)` to `nan(...)` / `inf(...)`.** Smallest change
+1. **Fix the stack overflow.** It is a crash, not a diagnostic — the user gets
+   nothing to act on and `runmat check` dies mid-batch. 34 files, and the
+   repro is eight lines.
+2. **Alias `NaN(...)` / `Inf(...)` to `nan(...)` / `inf(...)`.** Smallest change
    on the list; unblocks 188 files and every failing runtime probe.
-2. **Implement `filesep`** (and `ispc`/`isunix`/`ismac`/`computer`). `filesep`
+3. **Implement `filesep`** (and `ispc`/`isunix`/`ismac`/`computer`). `filesep`
    is a one-line function used in 118 Dynare files.
-3. **Teach the definite-assignment checker about `global`.** One rule in the
+4. **Teach the definite-assignment checker about `global`.** One rule in the
    analysis; it is the largest single failure bucket and affects 123 files.
-4. **Parser: accept unterminated functions.** One rule; unblocks ~80% of the
+5. **Parser: accept unterminated functions.** One rule; unblocks ~80% of the
    files and makes every subsequent measurement meaningful.
-5. **`switch` on strings.** Small, and it is everywhere in real MATLAB.
-6. **Soften definite-assignment generally** — MATLAB has no such rule, so
+6. **`switch` on strings.** Small, and it is everywhere in real MATLAB.
+7. **Soften definite-assignment generally** — MATLAB has no such rule, so
    rejecting the program outright is stricter than the language allows. A
    warning would keep the diagnostic value without blocking valid code.
-7. **Struct auto-vivification.** Larger semantic change, but Dynare's data model
+8. **Struct auto-vivification.** Larger semantic change, but Dynare's data model
    depends on it.
-8. **QZ / `ordqz` / `schur`.** The gating item for solving anything. LAPACK
+9. **QZ / `ordqz` / `schur`.** The gating item for solving anything. LAPACK
    already provides `dgges`/`dtgsen`; the work is binding and reordering, not
    numerics.
-9. **Sparse `mtimes` / `mldivide`.**
-10. Everything else in P2/P3 — individually small, mechanical.
+10. **Sparse `mtimes` / `mldivide`.**
+11. Everything else in P2/P3 — individually small, mechanical.
 
-Items 1-5 are, on the evidence here, a few days of work that would move Dynare
+Items 1-6 are, on the evidence here, a few days of work that would move Dynare
 from "essentially unreadable" to "large parts load and run". Item 7 is the one
 that decides whether a model can actually be solved, and it is real numerical
 work rather than a compatibility patch.
