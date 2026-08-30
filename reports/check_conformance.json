@@ -1,11 +1,11 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/check",
-  "total": 5,
+  "total": 6,
   "totals": {
-    "xfail": 4,
+    "xfail": 5,
     "pass": 1
   },
-  "elapsed_sec": 3.9,
+  "elapsed_sec": 5.4,
   "results": [
     {
       "id": "brace_index_parameter",
@@ -50,6 +50,17 @@
       "run_actual": "42",
       "status": "xfail",
       "xfail_reason": "the definite-assignment analysis does not treat `global` as bringing the name into scope"
+    },
+    {
+      "id": "nested_if_param_reassign_index",
+      "checks_clean": false,
+      "errors": 1,
+      "error": "",
+      "runs_correctly": false,
+      "run_expected": "7",
+      "run_actual": "",
+      "status": "xfail",
+      "xfail_reason": "stack overflow \u2014 a parameter reassigned in a nested if, then used as an index, crashes check AND run"
     },
     {
       "id": "plain_function",

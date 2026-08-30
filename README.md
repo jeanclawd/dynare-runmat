@@ -84,6 +84,7 @@ separates a checker bug from a real runtime gap:
 | `global M_` then reading `M_.foo` | `RM-MIR0001` | ✅ returns 42 |
 | brace-indexing a parameter, `c{i}` | `RM-TYPE-BRACE-INDEX` | ✅ returns 20 |
 | `feval(fs{i}, ...)` | `RunMat:HirError` | ❌ fails at run time too |
+| param reassigned in a nested `if`, then indexed | **stack overflow, process aborts** | ❌ crashes `run` too |
 
 A separate hazard worth knowing before trusting any measurement here:
 `runmat run` analyses every `.m` file beside the script and aborts on a static
@@ -92,7 +93,10 @@ into its own temp directory before running it. `runmat check` is unaffected, so
 the parse-sweep numbers above were never at risk.
 
 The first three are checker-only and account for roughly 450 of the 762
-shimmed-tree failures. The fourth is a genuine limitation: a brace index is
+shimmed-tree failures. The stack overflow is the most severe single item found:
+an 8-line function aborts the process outright, in both `check` and `run`, and
+34 Dynare files hit it — they are exactly the sweep entries that carry no error
+message, because the process dies before printing one. The fourth is a genuine limitation: a brace index is
 treated as a comma-list expansion even with a scalar index, so a function
 selected out of a cell cannot be `feval`'d — which is how Dynare dispatches
 per-block model functions.

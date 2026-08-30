@@ -2,9 +2,9 @@
 
 Every case here is legal MATLAB. `runs correctly: True` means the code executes and returns MATLAB's answer, so the rejection is the checker's and not the code's. `False` means the gap is in the runtime too, not only in `runmat check`.
 
-- Cases: **5**
+- Cases: **6**
 - Check clean: **1**
-- Known checker gaps (xfail): **4**
+- Known checker gaps (xfail): **5**
 - Unexpected: **0**
 
 ### ⚠️ `brace_index_parameter`
@@ -30,6 +30,11 @@ Every case here is legal MATLAB. `runs correctly: True` means the code executes 
 - gap: the definite-assignment analysis does not treat `global` as bringing the name into scope
 - `error[RM-MIR0001]: local may be read before it is assigned`
 - runs correctly: **True** (expected `42`, got `42`)
+
+### ⚠️ `nested_if_param_reassign_index`
+
+- gap: stack overflow — a parameter reassigned in a nested if, then used as an index, crashes check AND run
+- runs correctly: **False** (expected `7`, got ``)
 
 ### ✅ `plain_function`
 

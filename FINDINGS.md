@@ -36,6 +36,46 @@ terminate with `end` or all omit it. Both forms are legal.
 
 ---
 
+## P0 — a stack overflow crashes both `check` and `run`
+
+Not a diagnostic. The process aborts.
+
+```matlab
+function y = f(a, v)
+if a < 1
+    if a == 0
+        a = a - 1;
+    end
+    y = v(a);
+end
+end
+```
+
+```
+$ runmat check f.m
+thread 'main' has overflowed its stack
+fatal runtime error: stack overflow, aborting
+
+$ runmat run driver.m          % calls f(0, [7 8 9])
+thread 'main' has overflowed its stack
+fatal runtime error: stack overflow, aborting
+```
+
+Minimised from `+identification/legacy_idx.m`, a 32-line Dynare utility. The
+trigger is a **parameter reassigned inside a nested `if` and then used as an
+index**. Delete the `a = a - 1` line and the same function checks clean, so the
+analysis appears to recurse without termination when it tries to resolve the
+value of `a` at the indexing site.
+
+**34 Dynare files crash this way.** They are the reason 34 sweep entries carry
+no error message at all — the process dies before printing one, which is also
+why they were invisible until specifically chased down.
+
+Severity is higher than the count suggests: an unhandled abort gives the user
+nothing to act on, and it takes out `runmat check` as a batch tool.
+
+---
+
 ## P0 — measurement caveat: `runmat check` is stricter than `runmat run`
 
 RunMat's checker enforces **definite assignment**, a rule MATLAB does not have.
