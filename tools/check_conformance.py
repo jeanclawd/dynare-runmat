@@ -24,8 +24,10 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from collections import Counter
 
@@ -93,16 +95,24 @@ def main() -> int:
 
         # If the case says it runs, prove it — that is the evidence that the
         # checker is wrong rather than the code.
+        #
+        # The run happens in a temp directory holding only this case and its
+        # driver. `runmat run` eagerly analyses every .m file beside the script
+        # and aborts on a static error in any of them, without naming the file;
+        # since this suite deliberately collects files that fail to check,
+        # running them in place would have each case poisoning the next.
         if expected_stdout is not None:
-            drv = os.path.join(os.path.dirname(path),
-                               "driver_" + os.path.basename(path))
-            if os.path.exists(drv):
-                rout, _rerr, _rc2 = run([args.runmat, "run",
-                                         os.path.basename(drv)],
-                                        os.path.dirname(path), args.timeout)
-            else:
-                rout, _rerr, _rc2 = run([args.runmat, "run", path],
-                                        os.path.dirname(path), args.timeout)
+            with tempfile.TemporaryDirectory() as td:
+                shutil.copy(path, os.path.join(td, os.path.basename(path)))
+                drv = os.path.join(os.path.dirname(path),
+                                   "driver_" + os.path.basename(path))
+                if os.path.exists(drv):
+                    shutil.copy(drv, os.path.join(td, os.path.basename(drv)))
+                    target = os.path.basename(drv)
+                else:
+                    target = os.path.basename(path)
+                rout, _rerr, _rc2 = run([args.runmat, "run", target],
+                                        td, args.timeout)
             actual = clean(rout)
             entry["runs_correctly"] = actual == expected_stdout
             entry["run_expected"] = expected_stdout

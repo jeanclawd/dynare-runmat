@@ -49,13 +49,26 @@ def clean(text: str) -> str:
 
 
 def run_case(runmat: str, path: str, timeout: int):
-    try:
-        proc = subprocess.run(
-            [runmat, "run", path], capture_output=True, text=True, timeout=timeout
-        )
-        return proc.stdout, proc.stderr, proc.returncode
-    except subprocess.TimeoutExpired:
-        return "", "TIMEOUT", -9
+    """Run one single-file case, alone in a temp directory.
+
+    Isolation is not tidiness here, it is correctness. `runmat run` eagerly
+    analyses every .m file sitting beside the script, and a static error in any
+    one of them aborts the run with that file's error and no indication of
+    where it came from. Left in place, a single malformed case would fail its
+    neighbours and the suite would report nonsense. (`runmat check` does not
+    behave this way — only `run`.)
+    """
+    with tempfile.TemporaryDirectory() as td:
+        local = os.path.join(td, os.path.basename(path))
+        shutil.copy(path, local)
+        try:
+            proc = subprocess.run(
+                [runmat, "run", os.path.basename(local)],
+                cwd=td, capture_output=True, text=True, timeout=timeout,
+            )
+            return proc.stdout, proc.stderr, proc.returncode
+        except subprocess.TimeoutExpired:
+            return "", "TIMEOUT", -9
 
 
 def run_dir_case(runmat: str, case_dir: str, timeout: int):

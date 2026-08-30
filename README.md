@@ -85,6 +85,12 @@ separates a checker bug from a real runtime gap:
 | brace-indexing a parameter, `c{i}` | `RM-TYPE-BRACE-INDEX` | ✅ returns 20 |
 | `feval(fs{i}, ...)` | `RunMat:HirError` | ❌ fails at run time too |
 
+A separate hazard worth knowing before trusting any measurement here:
+`runmat run` analyses every `.m` file beside the script and aborts on a static
+error in any of them, naming no file. Both harnesses therefore copy each case
+into its own temp directory before running it. `runmat check` is unaffected, so
+the parse-sweep numbers above were never at risk.
+
 The first three are checker-only and account for roughly 450 of the 762
 shimmed-tree failures. The fourth is a genuine limitation: a brace index is
 treated as a comma-list expansion even with a scalar index, so a function
@@ -99,13 +105,13 @@ is not callable, though `nan(n,m)` is.
 
 ### Semantic conformance
 
-109 hand-written cases across structs, cells, functions, strings, constructors,
+110 hand-written cases across structs, cells, functions, strings, constructors,
 complex arithmetic, printf formats, platform builtins, dense and sparse linear
 algebra, error handling, indexing, control flow, file I/O, RNG reproducibility,
 and multi-file structure. Each case pins the exact output MATLAB produces; numeric
 cases assert a mathematical identity rather than a text format.
 
-**78 pass, 31 are tracked known gaps, 0 unexpected failures.**
+**78 pass, 32 are tracked known gaps, 0 unexpected failures.**
 
 Most cases are one file. Features that cannot be — `classdef`, `+package`
 namespaces, cross-file resolution — are directories holding a `main.m` plus

@@ -167,6 +167,39 @@ Two consequences:
 
 ---
 
+## P1 — a stray `.m` file in the directory breaks unrelated scripts
+
+`runmat run` eagerly analyses every `.m` file sitting beside the script. A
+static error in any one of them aborts the run — and the message names no file,
+so it looks like a fault in the script you asked for.
+
+```
+/tmp/demo/good.m           M = [1 2; 3 4]; disp(size(M));
+/tmp/demo/unrelated.m      function M = f(a)
+                           M = [a; 1 2];
+                           end
+```
+
+```
+$ runmat run good.m
+error: tensor literal rows must have consistent column counts
+id: RunMat:AggregateShapeMismatch
+```
+
+`good.m` never calls `unrelated.m`. Delete the sibling and `good.m` prints
+`2 2`. The behaviour is limited to the script's own directory — subdirectories
+do not contaminate — and **`runmat check` is unaffected**; only `run` is.
+
+This matters twice over for Dynare. Its `matlab/` directories hold dozens of
+files each, so one file RunMat cannot analyse takes its whole directory down
+with it. And it is a trap for anyone measuring compatibility: it cost me a
+false finding here — "vertical concatenation is broken" — that evaporated the
+moment I re-ran the same code in an empty directory. Both harnesses in this
+repo now copy each case into a temp directory before running it, and the
+regression is pinned as `tests/conformance/multifile/sibling_file_isolation`.
+
+---
+
 ## P1 — blocks running ordinary Dynare code
 
 ### 2. `switch` on a string errors

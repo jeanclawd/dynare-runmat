@@ -1,12 +1,12 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/conformance",
-  "total": 109,
+  "total": 110,
   "totals": {
     "pass": 78,
-    "xfail": 31
+    "xfail": 32
   },
   "working": 78,
-  "conformance_pct": 71.56,
+  "conformance_pct": 70.91,
   "by_category": {
     "cells": {
       "pass": 5,
@@ -40,7 +40,7 @@
     },
     "multifile": {
       "pass": 7,
-      "xfail": 1
+      "xfail": 2
     },
     "platform": {
       "xfail": 4,
@@ -111,7 +111,7 @@
       "expected": "1 1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: ismember: unsupported input type CharArray(CharArray { data: ['b', 'b'], shape: [1, 2], rows: 1, cols: 2 }); expected numeric or logical values\nid: RunMat:ismember:Internal\n--> tests/conformance/cells/iscellstr_and_ismember.m:3:34\n3 | fprintf('%d %d\\n', iscellstr(c), ismember('bb', c));\n| ^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/cells/iscellstr_and_ismember.m @ tests/conformance/cells/iscellstr_and_ismember.m:3:34",
+      "stderr": "error: ismember: unsupported input type CharArray(CharArray { data: ['b', 'b'], shape: [1, 2], rows: 1, cols: 2 }); expected numeric or logical values\nid: RunMat:ismember:Internal\n--> iscellstr_and_ismember.m:3:34\n3 | fprintf('%d %d\\n', iscellstr(c), ismember('bb', c));\n| ^^^^^^^^^^^^^^^^^\ncallstack:\niscellstr_and_ismember.m @ iscellstr_and_ismember.m:3:34",
       "xfail_reason": "ismember() rejects char/cellstr inputs, accepting only numeric or logical"
     },
     {
@@ -121,7 +121,7 @@
       "expected": "a-b-c",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: cannot convert to string array: Cell(CellArray { data: [String(\"a\"), String(\"b\"), String(\"c\")], shape: [1, 3], rows: 1, cols: 3 })\nid: RunMat:RuntimeError\n--> tests/conformance/cells/strjoin_strsplit.m:3:17\n3 | fprintf('%s\\n', strjoin(p, '-'));\n| ^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/cells/strjoin_strsplit.m @ tests/conformance/cells/strjoin_strsplit.m:3:17",
+      "stderr": "error: cannot convert to string array: Cell(CellArray { data: [String(\"a\"), String(\"b\"), String(\"c\")], shape: [1, 3], rows: 1, cols: 3 })\nid: RunMat:RuntimeError\n--> strjoin_strsplit.m:3:17\n3 | fprintf('%s\\n', strjoin(p, '-'));\n| ^^^^^^^^^^^^^^^\ncallstack:\nstrjoin_strsplit.m @ strjoin_strsplit.m:3:17",
       "xfail_reason": "strjoin() cannot consume a cell array of strings"
     },
     {
@@ -195,7 +195,7 @@
       "expected": "2",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: Inf\nid: RunMat:UndefinedFunction\n--> tests/conformance/constructors/Inf_capitalized_sized.m:2:22\n2 | fprintf('%d\\n', size(Inf(2, 2), 1));\n| ^^^^^^^^^\ncallstack:\ntests/conformance/constructors/Inf_capitalized_sized.m @ tests/conformance/constructors/Inf_capitalized_sized.m:2:22",
+      "stderr": "error: Undefined function: Inf\nid: RunMat:UndefinedFunction\n--> Inf_capitalized_sized.m:2:22\n2 | fprintf('%d\\n', size(Inf(2, 2), 1));\n| ^^^^^^^^^\ncallstack:\nInf_capitalized_sized.m @ Inf_capitalized_sized.m:2:22",
       "xfail_reason": "Inf(...) is not callable as a constructor though inf(...) is"
     },
     {
@@ -213,7 +213,7 @@
       "expected": "2 3",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: NaN\nid: RunMat:UndefinedFunction\n--> tests/conformance/constructors/NaN_capitalized_sized.m:2:25\n2 | fprintf('%d %d\\n', size(NaN(2, 3), 1), size(NaN(2, 3), 2));\n| ^^^^^^^^^\ncallstack:\ntests/conformance/constructors/NaN_capitalized_sized.m @ tests/conformance/constructors/NaN_capitalized_sized.m:2:25",
+      "stderr": "error: Undefined function: NaN\nid: RunMat:UndefinedFunction\n--> NaN_capitalized_sized.m:2:25\n2 | fprintf('%d %d\\n', size(NaN(2, 3), 1), size(NaN(2, 3), 2));\n| ^^^^^^^^^\ncallstack:\nNaN_capitalized_sized.m @ NaN_capitalized_sized.m:2:25",
       "xfail_reason": "NaN(...) is not callable as a constructor though nan(...) is; 188 Dynare files use the capitalized spelling"
     },
     {
@@ -247,7 +247,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: isprop\nid: RunMat:UndefinedFunction\n--> tests/conformance/errors/error_stack_field.m:5:40\n5 | fprintf('%d\\n', isfield(e, 'stack') || isprop(e, 'stack'));\n| ^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/errors/error_stack_field.m @ tests/conformance/errors/error_stack_field.m:5:40",
+      "stderr": "error: Undefined function: isprop\nid: RunMat:UndefinedFunction\n--> error_stack_field.m:5:40\n5 | fprintf('%d\\n', isfield(e, 'stack') || isprop(e, 'stack'));\n| ^^^^^^^^^^^^^^^^^^\ncallstack:\nerror_stack_field.m @ error_stack_field.m:5:40",
       "xfail_reason": "exception object exposing a stack field"
     },
     {
@@ -347,7 +347,7 @@
       "expected": "12",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: (x) x * 3\nid: RunMat:UndefinedFunction\n--> tests/conformance/functions/str2func_roundtrip.m:3:17\n3 | fprintf('%d\\n', h(4));\n| ^^^^\ncallstack:\ntests/conformance/functions/str2func_roundtrip.m @ tests/conformance/functions/str2func_roundtrip.m:3:17",
+      "stderr": "error: Undefined function: (x) x * 3\nid: RunMat:UndefinedFunction\n--> str2func_roundtrip.m:3:17\n3 | fprintf('%d\\n', h(4));\n| ^^^^\ncallstack:\nstr2func_roundtrip.m @ str2func_roundtrip.m:3:17",
       "xfail_reason": "str2func() does not evaluate an anonymous-function source string"
     },
     {
@@ -461,7 +461,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: expm\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/expm_zero.m:2:1\n2 | E = expm(zeros(2));\n| ^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/expm_zero.m @ tests/conformance/linalg/expm_zero.m:2:1",
+      "stderr": "error: Undefined function: expm\nid: RunMat:UndefinedFunction\n--> expm_zero.m:2:1\n2 | E = expm(zeros(2));\n| ^^^^^^^^^^^^^^^^^^\ncallstack:\nexpm_zero.m @ expm_zero.m:2:1",
       "xfail_reason": "expm() is not implemented in RunMat 0.6.2"
     },
     {
@@ -495,7 +495,7 @@
       "expected": "2",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: qz\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/ordqz_reordering.m:4:1\n4 | [AA, BB, Q, Z] = qz(A, B);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/ordqz_reordering.m @ tests/conformance/linalg/ordqz_reordering.m:4:1",
+      "stderr": "error: Undefined function: qz\nid: RunMat:UndefinedFunction\n--> ordqz_reordering.m:4:1\n4 | [AA, BB, Q, Z] = qz(A, B);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\nordqz_reordering.m @ ordqz_reordering.m:4:1",
       "xfail_reason": "ordqz() missing \u2014 required to split stable/unstable roots (Blanchard-Kahn)"
     },
     {
@@ -513,7 +513,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: qz\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/qz_generalized_schur.m:4:1\n4 | [AA, BB, Q, Z] = qz(A, B);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/qz_generalized_schur.m @ tests/conformance/linalg/qz_generalized_schur.m:4:1",
+      "stderr": "error: Undefined function: qz\nid: RunMat:UndefinedFunction\n--> qz_generalized_schur.m:4:1\n4 | [AA, BB, Q, Z] = qz(A, B);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\nqz_generalized_schur.m @ qz_generalized_schur.m:4:1",
       "xfail_reason": "qz() missing \u2014 this is Dynare's first-order perturbation solver"
     },
     {
@@ -523,7 +523,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: schur\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/schur_decomposition.m:3:1\n3 | [U, T] = schur(A);\n| ^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/schur_decomposition.m @ tests/conformance/linalg/schur_decomposition.m:3:1",
+      "stderr": "error: Undefined function: schur\nid: RunMat:UndefinedFunction\n--> schur_decomposition.m:3:1\n3 | [U, T] = schur(A);\n| ^^^^^^^^^^^^^^^^^\ncallstack:\nschur_decomposition.m @ schur_decomposition.m:3:1",
       "xfail_reason": "schur() is not implemented in RunMat 0.6.2"
     },
     {
@@ -541,7 +541,7 @@
       "expected": "2",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined function: sylvester\nid: RunMat:UndefinedFunction\n--> tests/conformance/linalg/sylvester_solve.m:2:1\n2 | X = sylvester([1 0; 0 2], [3 0; 0 4], [1 1; 1 1]);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/linalg/sylvester_solve.m @ tests/conformance/linalg/sylvester_solve.m:2:1",
+      "stderr": "error: Undefined function: sylvester\nid: RunMat:UndefinedFunction\n--> sylvester_solve.m:2:1\n2 | X = sylvester([1 0; 0 2], [3 0; 0 4], [1 1; 1 1]);\n| ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ncallstack:\nsylvester_solve.m @ sylvester_solve.m:2:1",
       "xfail_reason": "sylvester() missing \u2014 used for second-order solution terms"
     },
     {
@@ -559,7 +559,7 @@
       "expected": "6",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: undefined variable 'w'\nid: RunMat:UndefinedVariable\n--> tests/conformance/misc/eval_simple.m:3:17\n3 | fprintf('%d\\n', w);\n| ^",
+      "stderr": "error: undefined variable 'w'\nid: RunMat:UndefinedVariable\n--> eval_simple.m:3:17\n3 | fprintf('%d\\n', w);\n| ^",
       "xfail_reason": "eval() does not create the variable in the caller's scope"
     },
     {
@@ -601,7 +601,7 @@
       "expected": "BC",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: cannot convert CharArray(CharArray { data: ['c'], shape: [1, 1], rows: 1, cols: 1 }) to f64\nid: RunMat:RuntimeError\n--> tests/conformance/misc/switch_cell_case.m:1:1\n1 | %% xfail: switch on a char value coerces the operand to f64 and errors\n| ^\ncallstack:\ntests/conformance/misc/switch_cell_case.m @ tests/conformance/misc/switch_cell_case.m:1:1",
+      "stderr": "error: cannot convert CharArray(CharArray { data: ['c'], shape: [1, 1], rows: 1, cols: 1 }) to f64\nid: RunMat:RuntimeError\n--> switch_cell_case.m:1:1\n1 | %% xfail: switch on a char value coerces the operand to f64 and errors\n| ^\ncallstack:\nswitch_cell_case.m @ switch_cell_case.m:1:1",
       "xfail_reason": "switch on a char value coerces the operand to f64 and errors"
     },
     {
@@ -611,7 +611,7 @@
       "expected": "B",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: cannot convert CharArray(CharArray { data: ['b'], shape: [1, 1], rows: 1, cols: 1 }) to f64\nid: RunMat:RuntimeError\n--> tests/conformance/misc/switch_on_string.m:1:1\n1 | %% xfail: switch on a char value coerces the operand to f64 and errors\n| ^\ncallstack:\ntests/conformance/misc/switch_on_string.m @ tests/conformance/misc/switch_on_string.m:1:1",
+      "stderr": "error: cannot convert CharArray(CharArray { data: ['b'], shape: [1, 1], rows: 1, cols: 1 }) to f64\nid: RunMat:RuntimeError\n--> switch_on_string.m:1:1\n1 | %% xfail: switch on a char value coerces the operand to f64 and errors\n| ^\ncallstack:\nswitch_on_string.m @ switch_on_string.m:1:1",
       "xfail_reason": "switch on a char value coerces the operand to f64 and errors"
     },
     {
@@ -621,7 +621,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: undefined variable 'computer'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/computer_returns_text.m:2:24\n2 | fprintf('%d\\n', ischar(computer));\n| ^^^^^^^^",
+      "stderr": "error: undefined variable 'computer'\nid: RunMat:UndefinedVariable\n--> computer_returns_text.m:2:24\n2 | fprintf('%d\\n', ischar(computer));\n| ^^^^^^^^",
       "xfail_reason": "computer() is not implemented"
     },
     {
@@ -631,7 +631,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: undefined variable 'ispc'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/exactly_one_platform_family.m:2:18\n2 | fprintf('%d\\n', (ispc + isunix) >= 1);\n| ^^^^",
+      "stderr": "error: undefined variable 'ispc'\nid: RunMat:UndefinedVariable\n--> exactly_one_platform_family.m:2:18\n2 | fprintf('%d\\n', (ispc + isunix) >= 1);\n| ^^^^",
       "xfail_reason": "ispc()/isunix() are not implemented"
     },
     {
@@ -641,7 +641,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: undefined variable 'filesep'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/filesep_is_one_char.m:2:5\n2 | s = filesep;\n| ^^^^^^^",
+      "stderr": "error: undefined variable 'filesep'\nid: RunMat:UndefinedVariable\n--> filesep_is_one_char.m:2:5\n2 | s = filesep;\n| ^^^^^^^",
       "xfail_reason": "filesep() is not implemented \u2014 used in 118 Dynare files"
     },
     {
@@ -667,7 +667,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: undefined variable 'ismac'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/ismac_is_logical.m:2:33\n2 | fprintf('%d\\n', ismember(double(ismac), [0 1]));\n| ^^^^^",
+      "stderr": "error: undefined variable 'ismac'\nid: RunMat:UndefinedVariable\n--> ismac_is_logical.m:2:33\n2 | fprintf('%d\\n', ismember(double(ismac), [0 1]));\n| ^^^^^",
       "xfail_reason": "ismac() is not implemented"
     },
     {
@@ -757,7 +757,7 @@
       "expected": "1.0\n1.0",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: mldivide: unsupported input type SparseTensor(SparseTensor { rows: 2, cols: 2, col_ptrs: [0, 1, 3], row_indices: [0, 0, 1], storage: F64([1.0, 1.0, 1.0]) }); expected numeric or logical values\nid: RunMat:mldivide:InvalidInput\n--> tests/conformance/sparse/sparse_backslash.m:4:1\n4 | x = S \\ b;\n| ^^^^^^^^^\ncallstack:\ntests/conformance/sparse/sparse_backslash.m @ tests/conformance/sparse/sparse_backslash.m:4:1",
+      "stderr": "error: mldivide: unsupported input type SparseTensor(SparseTensor { rows: 2, cols: 2, col_ptrs: [0, 1, 3], row_indices: [0, 0, 1], storage: F64([1.0, 1.0, 1.0]) }); expected numeric or logical values\nid: RunMat:mldivide:InvalidInput\n--> sparse_backslash.m:4:1\n4 | x = S \\ b;\n| ^^^^^^^^^\ncallstack:\nsparse_backslash.m @ sparse_backslash.m:4:1",
       "xfail_reason": "mldivide() rejects sparse operands"
     },
     {
@@ -775,7 +775,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: mtimes: unsupported operand types\nid: RunMat:mtimes:InvalidInput\n--> tests/conformance/sparse/sparse_matmul.m:3:27\n3 | fprintf('%d\\n', norm(full(S * S) - eye(3)) < 1e-12);\n| ^^^^^\ncallstack:\ntests/conformance/sparse/sparse_matmul.m @ tests/conformance/sparse/sparse_matmul.m:3:27",
+      "stderr": "error: mtimes: unsupported operand types\nid: RunMat:mtimes:InvalidInput\n--> sparse_matmul.m:3:27\n3 | fprintf('%d\\n', norm(full(S * S) - eye(3)) < 1e-12);\n| ^^^^^\ncallstack:\nsparse_matmul.m @ sparse_matmul.m:3:27",
       "xfail_reason": "mtimes() rejects sparse operands"
     },
     {
@@ -793,7 +793,7 @@
       "expected": "x 12",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Cell index out of bounds\nid: RunMat:CellIndexOutOfBounds\n--> tests/conformance/strings/regexp_tokens.m:3:20\n3 | fprintf('%s %s\\n', t{1}{1}, t{1}{2});\n| ^^^^\ncallstack:\ntests/conformance/strings/regexp_tokens.m @ tests/conformance/strings/regexp_tokens.m:3:20",
+      "stderr": "error: Cell index out of bounds\nid: RunMat:CellIndexOutOfBounds\n--> regexp_tokens.m:3:20\n3 | fprintf('%s %s\\n', t{1}{1}, t{1}{2});\n| ^^^^\ncallstack:\nregexp_tokens.m @ regexp_tokens.m:3:20",
       "xfail_reason": "regexp(...,'tokens') does not return MATLAB's nested cell structure"
     },
     {
@@ -861,7 +861,7 @@
       "expected": "2",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> tests/conformance/structs/autoviv_nested.m:2:1\n2 | s.a.b = 2;\n| ^^^^^^^^^\ncallstack:\ntests/conformance/structs/autoviv_nested.m @ tests/conformance/structs/autoviv_nested.m:2:1",
+      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> autoviv_nested.m:2:1\n2 | s.a.b = 2;\n| ^^^^^^^^^\ncallstack:\nautoviv_nested.m @ autoviv_nested.m:2:1",
       "xfail_reason": "nested auto-vivification from an undefined base variable"
     },
     {
@@ -871,7 +871,7 @@
       "expected": "1",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> tests/conformance/structs/autoviv_scalar.m:2:1\n2 | s.a = 1;\n| ^^^^^^^\ncallstack:\ntests/conformance/structs/autoviv_scalar.m @ tests/conformance/structs/autoviv_scalar.m:2:1",
+      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> autoviv_scalar.m:2:1\n2 | s.a = 1;\n| ^^^^^^^\ncallstack:\nautoviv_scalar.m @ autoviv_scalar.m:2:1",
       "xfail_reason": "RunMat requires the struct to exist before a field is assigned"
     },
     {
@@ -913,7 +913,7 @@
       "expected": "2 2",
       "actual": "",
       "returncode": 1,
-      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> tests/conformance/structs/struct_array_numel.m:2:1\n2 | s(1).a = 1;\n| ^^^^^^^^^^\ncallstack:\ntests/conformance/structs/struct_array_numel.m @ tests/conformance/structs/struct_array_numel.m:2:1",
+      "stderr": "error: Undefined variable: s\nid: RunMat:UndefinedVariable\n--> struct_array_numel.m:2:1\n2 | s(1).a = 1;\n| ^^^^^^^^^^\ncallstack:\nstruct_array_numel.m @ struct_array_numel.m:2:1",
       "xfail_reason": "struct array built by indexed auto-vivification"
     },
     {
@@ -1005,7 +1005,18 @@
       "actual": "1 1",
       "returncode": 0,
       "multifile": true
+    },
+    {
+      "id": "multifile/sibling_file_isolation",
+      "category": "multifile",
+      "status": "xfail",
+      "expected": "2 2",
+      "actual": "",
+      "returncode": 1,
+      "multifile": true,
+      "stderr": "error: tensor literal rows must have consistent column counts\nid: RunMat:AggregateShapeMismatch",
+      "xfail_reason": "a sibling .m file with a static error aborts this script, and the error names no file"
     }
   ],
-  "elapsed_sec": 48.6
+  "elapsed_sec": 44.4
 }
