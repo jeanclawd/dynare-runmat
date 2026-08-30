@@ -297,6 +297,39 @@ TESTS = [
      "fprintf('%d\\n', isempty(getenv('RUNMAT_DEFINITELY_NOT_SET_XYZ')));",
      "1", None),
 
+    # --------------------------------------------------------- concatenation
+    ("concat", "literal_matrix",
+     "M = [1 2; 3 4];\nfprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "2 2", None),
+    ("concat", "vertcat_two_row_vars",
+     "a = [1 2];\nb = [3 4];\nM = [a; b];\n"
+     "fprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "2 2", None),
+    ("concat", "vertcat_matrix_and_row",
+     "A = [1 2; 3 4];\na = [5 6];\nM = [A; a];\n"
+     "fprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "3 2", None),
+    ("concat", "horzcat_two_row_vars",
+     "a = [1 2];\nb = [3 4];\nM = [a b];\n"
+     "fprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "1 4", None),
+    ("concat", "vertcat_function_form",
+     "a = [1 2];\nb = [3 4];\nM = vertcat(a, b);\n"
+     "fprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "2 2", None),
+    ("concat", "var_row_then_literal_row",
+     "a = [3 4];\nM = [a; 1 2];\n"
+     "fprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "2 2",
+     "a bare variable row is counted as one column against a multi-element "
+     "literal row"),
+    ("concat", "literal_row_then_var_row",
+     "a = [3 4];\nM = [1 2; a];\n"
+     "fprintf('%d %d\\n', size(M, 1), size(M, 2));",
+     "2 2",
+     "a bare variable row is counted as one column against a multi-element "
+     "literal row"),
+
     # -------------------------------------------------------------- complex
     # DSGE eigenvalues are generally complex, so this whole area is load-bearing
     # for any Blanchard-Kahn style stability check.

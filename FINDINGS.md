@@ -133,7 +133,6 @@ index for dimension 2 is outside the proven bound 0
 operator is not defined for the proven operand value category
 right-division column dimensions 1 and 2 do not agree
 transpose requires a numeric, logical, or character value
-tensor literal rows must have consistent column counts        (12 files)
 ```
 
 A genuine limitation rather than over-strictness, also in that tail (7 files):
@@ -284,7 +283,39 @@ alias, not a semantic change.
 
 ## P2 — missing builtins Dynare depends on
 
-### 6. Basic platform builtins are missing — `filesep` is in 118 Dynare files
+### 6. A matrix row that is a bare variable is counted as one column
+
+12 files. This one is not over-strictness — it fails at run time too.
+
+```matlab
+a = [3 4];
+M = [a; 1 2];     % MATLAB: 2x2. RunMat: error
+M = [1 2; a];     % same
+```
+
+```
+error: tensor literal rows must have consistent column counts
+id: RunMat:AggregateShapeMismatch
+```
+
+RunMat appears to count *elements* in each row rather than columns, so the row
+`a` scores 1 against the row `1 2`'s 2. The neighbouring forms are all fine,
+which is what makes it easy to miss:
+
+| Form | Result |
+| --- | --- |
+| `[1 2; 3 4]` | works |
+| `[a; b]` (both `1x2`) | works |
+| `[A; a]` (`2x2` and `1x2`) | works |
+| `[a b]` horizontal | works |
+| `vertcat(a, b)` | works |
+| `[a; 1 2]` | **fails** |
+| `[1 2; a]` | **fails** |
+
+So it is specifically a bare variable sharing a literal with a multi-element
+row. `vertcat` is a working substitute.
+
+### 7. Basic platform builtins are missing — `filesep` is in 118 Dynare files
 
 ```matlab
 exist('filesep')   % 0
@@ -300,7 +331,7 @@ Dynare usage: `filesep` **118 files**, `ispc` 21, `isunix` 7, `ismac` 7,
 `computer` 5. `filesep` is the most-used missing builtin found so far and is a
 one-line implementation. It is the top blocker for the `ms-sbvar` subsystem.
 
-### 7. The QZ family is absent — this blocks model solution outright
+### 8. The QZ family is absent — this blocks model solution outright
 
 ```matlab
 exist('qz')       % 0
@@ -322,7 +353,7 @@ state.
 Present and working: `eig`, `svd`, `chol`, `lu`, `kron`, `pinv`, `null`, `cond`,
 `norm`, `rank`, `det`, `inv`, and dense `\`.
 
-### 8. Sparse matrices exist but core operations reject them
+### 9. Sparse matrices exist but core operations reject them
 
 ```matlab
 S = sparse(eye(3));
@@ -333,14 +364,14 @@ S \ [1;2]  % error: mldivide: unsupported input type SparseTensor
 Construction, `full`, `nnz`, `issparse`, and `speye` all work — the type is
 there, the operations are not. Dynare represents Jacobians sparsely throughout.
 
-### 9. `ismember` rejects char and cellstr
+### 10. `ismember` rejects char and cellstr
 
 ```matlab
 ismember('bb', {'aa', 'bb'})
 % error: ismember: unsupported input type CharArray; expected numeric or logical
 ```
 
-### 10. `strjoin` cannot consume a cell array of strings
+### 11. `strjoin` cannot consume a cell array of strings
 
 ```matlab
 strjoin(strsplit('a,b,c', ','), '-')
@@ -353,7 +384,7 @@ strjoin(strsplit('a,b,c', ','), '-')
 
 ## P3 — output and detail differences
 
-### 11. `printf` numeric formats are wrong in several ways
+### 12. `printf` numeric formats are wrong in several ways
 
 | Format | Input | MATLAB | RunMat |
 | --- | --- | --- | --- |
@@ -375,7 +406,7 @@ a non-integer. RunMat prints `fprintf('%d', 2.5)` as `2`; MATLAB is documented
 to switch to exponential notation for non-integer values given an integer
 conversion. Flagged rather than asserted.
 
-### 12. `exist` returns the wrong code for files
+### 13. `exist` returns the wrong code for files
 
 ```matlab
 exist('data.txt', 'file')   % MATLAB 2, RunMat 3
@@ -390,7 +421,7 @@ ordinary files, so `exist(f) == 2` guards fail. Dynare has 5 such comparisons.
 The directory, variable, and not-found codes are all right — only the file case
 is off.
 
-### 13. `regexp(..., 'tokens')` returns the wrong nesting
+### 14. `regexp(..., 'tokens')` returns the wrong nesting
 
 ```matlab
 t = regexp('x=12', '(\w+)=(\d+)', 'tokens');

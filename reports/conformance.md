@@ -1,8 +1,8 @@
 # RunMat semantic conformance (Dynare-relevant features)
 
-- Cases: **110**
-- Working (pass + xpass): **78** (70.91%)
-- Failing: **0**, known gaps (xfail): **32**
+- Cases: **117**
+- Working (pass + xpass): **83** (70.94%)
+- Failing: **0**, known gaps (xfail): **34**
 
 ## By category
 
@@ -13,6 +13,11 @@
 
 ### complex — 8/8
 
+
+### concat — 5/7
+
+- ⚠️ `concat/literal_row_then_var_row` a bare variable row is counted as one column against a multi-element literal row
+- ⚠️ `concat/var_row_then_literal_row` a bare variable row is counted as one column against a multi-element literal row
 
 ### constructors — 3/5
 

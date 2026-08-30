@@ -1,12 +1,12 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/conformance",
-  "total": 110,
+  "total": 117,
   "totals": {
-    "pass": 78,
-    "xfail": 32
+    "pass": 83,
+    "xfail": 34
   },
-  "working": 78,
-  "conformance_pct": 70.91,
+  "working": 83,
+  "conformance_pct": 70.94,
   "by_category": {
     "cells": {
       "pass": 5,
@@ -14,6 +14,10 @@
     },
     "complex": {
       "pass": 8
+    },
+    "concat": {
+      "pass": 5,
+      "xfail": 2
     },
     "constructors": {
       "xfail": 2,
@@ -186,6 +190,66 @@
       "status": "pass",
       "expected": "2.00",
       "actual": "2.00",
+      "returncode": 0
+    },
+    {
+      "id": "concat/horzcat_two_row_vars",
+      "category": "concat",
+      "status": "pass",
+      "expected": "1 4",
+      "actual": "1 4",
+      "returncode": 0
+    },
+    {
+      "id": "concat/literal_matrix",
+      "category": "concat",
+      "status": "pass",
+      "expected": "2 2",
+      "actual": "2 2",
+      "returncode": 0
+    },
+    {
+      "id": "concat/literal_row_then_var_row",
+      "category": "concat",
+      "status": "xfail",
+      "expected": "2 2",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: tensor literal rows must have consistent column counts\nid: RunMat:AggregateShapeMismatch",
+      "xfail_reason": "a bare variable row is counted as one column against a multi-element literal row"
+    },
+    {
+      "id": "concat/var_row_then_literal_row",
+      "category": "concat",
+      "status": "xfail",
+      "expected": "2 2",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: tensor literal rows must have consistent column counts\nid: RunMat:AggregateShapeMismatch",
+      "xfail_reason": "a bare variable row is counted as one column against a multi-element literal row"
+    },
+    {
+      "id": "concat/vertcat_function_form",
+      "category": "concat",
+      "status": "pass",
+      "expected": "2 2",
+      "actual": "2 2",
+      "returncode": 0
+    },
+    {
+      "id": "concat/vertcat_matrix_and_row",
+      "category": "concat",
+      "status": "pass",
+      "expected": "3 2",
+      "actual": "3 2",
+      "returncode": 0
+    },
+    {
+      "id": "concat/vertcat_two_row_vars",
+      "category": "concat",
+      "status": "pass",
+      "expected": "2 2",
+      "actual": "2 2",
       "returncode": 0
     },
     {
@@ -1018,5 +1082,5 @@
       "xfail_reason": "a sibling .m file with a static error aborts this script, and the error names no file"
     }
   ],
-  "elapsed_sec": 44.4
+  "elapsed_sec": 47.6
 }
