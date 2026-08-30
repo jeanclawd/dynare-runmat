@@ -245,19 +245,27 @@ strjoin(strsplit('a,b,c', ','), '-')
 
 ## P3 — output and detail differences
 
-### 10. `%e` produces a malformed exponent
+### 10. `printf` numeric formats are wrong in several ways
 
-```matlab
-fprintf('%e\n', 1234.5)
-```
+| Format | Input | MATLAB | RunMat |
+| --- | --- | --- | --- |
+| `%e` | `1234.5` | `1.234500e+03` | `1.234500e3` |
+| `%g` | `1` | `1` | `1.` |
+| `%g` | `100000` | `100000` | `100000.` |
+| `%g` | `0.00001` | `1e-05` | `1.00000e-5` |
 
-| | |
-| --- | --- |
-| MATLAB | `1.234500e+03` |
-| RunMat | `1.234500e3` |
+Three distinct bugs: the exponent is missing its sign and two-digit padding,
+`%g` leaves a trailing `.` on whole numbers, and `%g` keeps trailing zeros
+instead of stripping them. `%f` and `%d` on integers are correct.
 
-Missing both the exponent sign and the two-digit zero padding. This silently
-changes any Dynare output, log file, or result table that uses `%e`.
+This is low severity per occurrence and high in aggregate — it silently changes
+every Dynare log line, results table, and generated `.m` file that formats a
+number this way.
+
+Worth checking against a real MATLAB, which was not available here: `%d` given
+a non-integer. RunMat prints `fprintf('%d', 2.5)` as `2`; MATLAB is documented
+to switch to exponential notation for non-integer values given an integer
+conversion. Flagged rather than asserted.
 
 ### 11. `regexp(..., 'tokens')` returns the wrong nesting
 
@@ -284,6 +292,12 @@ reimplementation to fall over, and none of them did:
 | `classdef < handle` with reference semantics | works |
 | `classdef` inside an `@dir` — Dynare's `@dprior` shape | works |
 | Cross-file function resolution | works |
+| Complex arithmetic, `abs`/`real`/`imag`/`conj`/`angle` | works |
+| Complex eigenvalues, `sqrt` of a negative, complex matrix products | works |
+
+Complex support mattering more than it looks: DSGE transition matrices have
+complex eigenvalues in general, and the Blanchard-Kahn check counts how many
+have modulus greater than one. `sum(abs(eig(A)) > 1)` gives the right answer.
 
 Dynare has 11 `classdef` files and a large number of `+package` directories, so
 this removes a whole category of risk. `@dprior` itself currently fails

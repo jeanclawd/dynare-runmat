@@ -1,8 +1,8 @@
 # RunMat semantic conformance (Dynare-relevant features)
 
-- Cases: **84**
-- Working (pass + xpass): **62** (73.81%)
-- Failing: **0**, known gaps (xfail): **22**
+- Cases: **99**
+- Working (pass + xpass): **73** (73.74%)
+- Failing: **0**, known gaps (xfail): **26**
 
 ## By category
 
@@ -10,6 +10,9 @@
 
 - ⚠️ `cells/iscellstr_and_ismember` ismember() rejects char/cellstr inputs, accepting only numeric or logical
 - ⚠️ `cells/strjoin_strsplit` strjoin() cannot consume a cell array of strings
+
+### complex — 8/8
+
 
 ### constructors — 3/5
 
@@ -44,6 +47,13 @@
 
 ### multifile — 5/5
 
+
+### printf — 3/7
+
+- ⚠️ `printf/e_exponent_padding` %e prints 'e3' instead of the signed two-digit 'e+03'
+- ⚠️ `printf/g_large_whole` %g emits a trailing '.' — prints '100000.'
+- ⚠️ `printf/g_small_exponent` %g prints '1.00000e-5': keeps trailing zeros and omits the two-digit exponent padding
+- ⚠️ `printf/g_whole_number` %g emits a trailing '.' on whole numbers — prints '1.'
 
 ### sparse — 2/4
 

@@ -1,16 +1,19 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/conformance",
-  "total": 84,
+  "total": 99,
   "totals": {
-    "pass": 62,
-    "xfail": 22
+    "pass": 73,
+    "xfail": 26
   },
-  "working": 62,
-  "conformance_pct": 73.81,
+  "working": 73,
+  "conformance_pct": 73.74,
   "by_category": {
     "cells": {
       "pass": 5,
       "xfail": 2
+    },
+    "complex": {
+      "pass": 8
     },
     "constructors": {
       "xfail": 2,
@@ -37,6 +40,10 @@
     },
     "multifile": {
       "pass": 5
+    },
+    "printf": {
+      "xfail": 4,
+      "pass": 3
     },
     "sparse": {
       "pass": 2,
@@ -111,6 +118,70 @@
       "returncode": 1,
       "stderr": "error: cannot convert to string array: Cell(CellArray { data: [String(\"a\"), String(\"b\"), String(\"c\")], shape: [1, 3], rows: 1, cols: 3 })\nid: RunMat:RuntimeError\n--> tests/conformance/cells/strjoin_strsplit.m:3:17\n3 | fprintf('%s\\n', strjoin(p, '-'));\n| ^^^^^^^^^^^^^^^\ncallstack:\ntests/conformance/cells/strjoin_strsplit.m @ tests/conformance/cells/strjoin_strsplit.m:3:17",
       "xfail_reason": "strjoin() cannot consume a cell array of strings"
+    },
+    {
+      "id": "complex/complex_abs",
+      "category": "complex",
+      "status": "pass",
+      "expected": "5.0",
+      "actual": "5.0",
+      "returncode": 0
+    },
+    {
+      "id": "complex/complex_eig_imaginary",
+      "category": "complex",
+      "status": "pass",
+      "expected": "1.00",
+      "actual": "1.00",
+      "returncode": 0
+    },
+    {
+      "id": "complex/complex_eig_modulus",
+      "category": "complex",
+      "status": "pass",
+      "expected": "1.00",
+      "actual": "1.00",
+      "returncode": 0
+    },
+    {
+      "id": "complex/complex_literal_parts",
+      "category": "complex",
+      "status": "pass",
+      "expected": "1 2",
+      "actual": "1 2",
+      "returncode": 0
+    },
+    {
+      "id": "complex/complex_matrix_product",
+      "category": "complex",
+      "status": "pass",
+      "expected": "-1",
+      "actual": "-1",
+      "returncode": 0
+    },
+    {
+      "id": "complex/conj_and_angle",
+      "category": "complex",
+      "status": "pass",
+      "expected": "1.00 1.5708",
+      "actual": "1.00 1.5708",
+      "returncode": 0
+    },
+    {
+      "id": "complex/count_roots_outside_unit_circle",
+      "category": "complex",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "id": "complex/sqrt_of_negative",
+      "category": "complex",
+      "status": "pass",
+      "expected": "2.00",
+      "actual": "2.00",
+      "returncode": 0
     },
     {
       "id": "constructors/Inf_capitalized_sized",
@@ -539,6 +610,70 @@
       "xfail_reason": "switch on a char value coerces the operand to f64 and errors"
     },
     {
+      "id": "printf/e_exponent_padding",
+      "category": "printf",
+      "status": "xfail",
+      "expected": "[1.234500e+03]",
+      "actual": "[1.234500e3]",
+      "returncode": 0,
+      "stderr": "",
+      "xfail_reason": "%e prints 'e3' instead of the signed two-digit 'e+03'"
+    },
+    {
+      "id": "printf/f_precision",
+      "category": "printf",
+      "status": "pass",
+      "expected": "[3.142]",
+      "actual": "[3.142]",
+      "returncode": 0
+    },
+    {
+      "id": "printf/g_decimal",
+      "category": "printf",
+      "status": "pass",
+      "expected": "[2.5]",
+      "actual": "[2.5]",
+      "returncode": 0
+    },
+    {
+      "id": "printf/g_large_whole",
+      "category": "printf",
+      "status": "xfail",
+      "expected": "[100000]",
+      "actual": "[100000.]",
+      "returncode": 0,
+      "stderr": "",
+      "xfail_reason": "%g emits a trailing '.' \u2014 prints '100000.'"
+    },
+    {
+      "id": "printf/g_small_exponent",
+      "category": "printf",
+      "status": "xfail",
+      "expected": "[1e-05]",
+      "actual": "[1.00000e-5]",
+      "returncode": 0,
+      "stderr": "",
+      "xfail_reason": "%g prints '1.00000e-5': keeps trailing zeros and omits the two-digit exponent padding"
+    },
+    {
+      "id": "printf/g_whole_number",
+      "category": "printf",
+      "status": "xfail",
+      "expected": "[1]",
+      "actual": "[1.]",
+      "returncode": 0,
+      "stderr": "",
+      "xfail_reason": "%g emits a trailing '.' on whole numbers \u2014 prints '1.'"
+    },
+    {
+      "id": "printf/mat2str_roundtrip",
+      "category": "printf",
+      "status": "pass",
+      "expected": "[1 2;3 4]",
+      "actual": "[1 2;3 4]",
+      "returncode": 0
+    },
+    {
       "id": "sparse/issparse_speye",
       "category": "sparse",
       "status": "pass",
@@ -774,5 +909,5 @@
       "multifile": true
     }
   ],
-  "elapsed_sec": 29.2
+  "elapsed_sec": 34.5
 }
