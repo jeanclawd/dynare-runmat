@@ -68,6 +68,22 @@ PROBES = [
     ("skipline", ["skipline.m"],
      "skipline(2);\nfprintf('done\\n');",
      "\n\ndone"),
+
+    ("skipline_default_arg", ["skipline.m"],
+     "skipline();\nfprintf('done\\n');",
+     "\ndone"),
+
+    ("exactcontains_hit", ["exactcontains.m"],
+     "fprintf('%d\\n', exactcontains('a bc b', 'b'));",
+     "1"),
+
+    ("exactcontains_miss", ["exactcontains.m"],
+     "fprintf('%d\\n', exactcontains('abc', 'b'));",
+     "0"),
+
+    ("dprintf", ["dprintf.m"],
+     "dprintf('%d-%s', 5, 'x');",
+     "5-x"),
 ]
 
 

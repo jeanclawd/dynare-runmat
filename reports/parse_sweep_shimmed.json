@@ -1,0 +1,6982 @@
+{
+  "root": "/root/Projects/dynare-runmat/build/shimmed",
+  "total": 1056,
+  "parsed_ok": 294,
+  "failed": 762,
+  "pass_rate": 27.84,
+  "buckets": [
+    [
+      "Unknown",
+      488
+    ],
+    [
+      "RunMat:UndefinedVariable",
+      186
+    ],
+    [
+      "RunMat:ParseError",
+      61
+    ],
+    [
+      "RunMat:AggregateShapeMismatch",
+      12
+    ],
+    [
+      "RunMat:MirLoweringError",
+      7
+    ],
+    [
+      "RunMat:MirCallFallbackPolicyUnsupported",
+      4
+    ],
+    [
+      "RunMat:MirParallelCapabilityUnsupported",
+      3
+    ],
+    [
+      "RunMat:MirCallTargetNameInvalid",
+      1
+    ]
+  ],
+  "signatures": [
+    [
+      "Unknown | local may be read before it is assigned",
+      212
+    ],
+    [
+      "RunMat:UndefinedVariable | undefined variable 'X'",
+      186
+    ],
+    [
+      "Unknown | local may be read before assignment on some control-flow paths",
+      143
+    ],
+    [
+      "Unknown | brace indexing requires a cell-like value",
+      88
+    ],
+    [
+      "Unknown | ",
+      35
+    ],
+    [
+      "RunMat:ParseError | expected 'X'",
+      20
+    ],
+    [
+      "RunMat:ParseError | expected identifier",
+      13
+    ],
+    [
+      "RunMat:AggregateShapeMismatch | tensor literal rows must have consistent column counts",
+      12
+    ],
+    [
+      "RunMat:ParseError | expected identifier or 'X'",
+      8
+    ],
+    [
+      "RunMat:MirLoweringError | feval: function argument cannot be a comma-list expansion",
+      7
+    ],
+    [
+      "RunMat:ParseError | expected 'X' to close cell literal",
+      4
+    ],
+    [
+      "Unknown | index for dimension N is outside the proven bound N",
+      3
+    ],
+    [
+      "RunMat:MirCallFallbackPolicyUnsupported | local may be read before it is assigned",
+      3
+    ],
+    [
+      "RunMat:ParseError | unexpected token: Minus",
+      3
+    ],
+    [
+      "RunMat:MirParallelCapabilityUnsupported | parallel-region MIR requires the structured scheduler lowering capability",
+      3
+    ],
+    [
+      "RunMat:ParseError | unexpected token: RBrace",
+      2
+    ],
+    [
+      "RunMat:ParseError | unexpected token: RBracket",
+      2
+    ],
+    [
+      "RunMat:ParseError | unexpected token: Newline",
+      2
+    ],
+    [
+      "Unknown | operator is not defined for the proven operand value category",
+      2
+    ],
+    [
+      "RunMat:ParseError | Syntax error at position N: expected 'X' to close cell literal (found: 'X'='X') (expected: 'X')",
+      1
+    ],
+    [
+      "RunMat:ParseError | Syntax error at position N: expected 'X' to close cell literal (found: 'X'idbeta'X') (expected: 'X')",
+      1
+    ],
+    [
+      "Unknown | right-division column dimensions N and N do not agree",
+      1
+    ],
+    [
+      "Unknown | transpose requires a numeric, logical, or character value",
+      1
+    ],
+    [
+      "RunMat:MirCallFallbackPolicyUnsupported | MIR workspace-first call fallback policy None is not supported for static callee BoundFunction(Funct",
+      1
+    ],
+    [
+      "RunMat:ParseError | 'X' command syntax accepts only one argument; found `",
+      1
+    ],
+    [
+      "Unknown | call requests N outputs but at most N are available",
+      1
+    ],
+    [
+      "RunMat:ParseError | expected multi-assignment target",
+      1
+    ],
+    [
+      "RunMat:MirCallTargetNameInvalid | local may be read before it is assigned",
+      1
+    ],
+    [
+      "RunMat:ParseError | Syntax error at position N: expected member name after 'X' (found: 'X') (expected: identifier)",
+      1
+    ],
+    [
+      "RunMat:ParseError | Unexpected adjacency: interpret as function call? Use parentheses (e.g., foo(b(N))).",
+      1
+    ],
+    [
+      "RunMat:ParseError | Syntax error at position N: expected 'X' to close cell literal (found: 'X') (expected: 'X')",
+      1
+    ],
+    [
+      "Unknown | non-concatenated dimension N disagrees across inputs (N versus N)",
+      1
+    ],
+    [
+      "Unknown | member access requires a struct or object value",
+      1
+    ]
+  ],
+  "results": [
+    {
+      "file": "+backward_model/dynamic_model.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+backward_model/forecast.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+backward_model/initialize.m",
+      "ok": false,
+      "errors": 14,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+backward_model/inversion.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+backward_model/irf.m",
+      "ok": false,
+      "errors": 24,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+backward_model/shock_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+backward_model/simul_linear_model.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+backward_model/simul_nonlinear_model.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "+backward_model/simul_static_model.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+bgp/write.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+bvar/density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+bvar/forecast.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '}' to close cell literal"
+    },
+    {
+      "file": "+bvar/graph_init.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+bvar/irf.m",
+      "ok": false,
+      "errors": 18,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+bvar/toolbox.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+conditional_forecasts/plot.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+conditional_forecasts/run.m",
+      "ok": false,
+      "errors": 37,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+equation/evaluate.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "+estimate/nls.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+forecasts/graph.m",
+      "ok": false,
+      "errors": 34,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+forecasts/run.m",
+      "ok": false,
+      "errors": 38,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+forecasts/stochastic_classical.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gsa/Morris_Measure_Groups.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gsa/Sampling_Function_2.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+gsa/boxplot.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gsa/cumplot.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+gsa/log_transform.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+gsa/map_calibration.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "+gsa/map_identification.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "+gsa/monte_carlo_filtering.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "+gsa/monte_carlo_filtering_analysis.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gsa/monte_carlo_moments.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+gsa/priorcdf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+gsa/reduced_form_mapping.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "+gsa/reduced_form_screening.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "+gsa/run.m",
+      "ok": false,
+      "errors": 38,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+gsa/scatter_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gsa/scatter_mcf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+gsa/scatter_plots.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+gsa/set_shocks_param.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+gsa/skewness.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+gsa/smirnov_test.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+gsa/stability_mapping.m",
+      "ok": false,
+      "errors": 82,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+gsa/stability_mapping_bivariate.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+gsa/stability_mapping_univariate.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+gsa/standardize_columns.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+gsa/tcrit.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+gsa/teff.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gsa/th_moments.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+gui/+perfect_foresight/run.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+gui/+stochastic-simulation/read.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+heterogeneity/check_steady_state_input.m",
+      "ok": false,
+      "errors": 14,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+heterogeneity/compute_steady_state.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+heterogeneity/load_steady_state.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'skipline'"
+    },
+    {
+      "file": "+heterogeneity/plot_irfs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'remove_fractional_xticks'"
+    },
+    {
+      "file": "+heterogeneity/plot_simulation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'remove_fractional_xticks'"
+    },
+    {
+      "file": "+heterogeneity/simulate.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+heterogeneity/simulate_irfs.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+heterogeneity/simulate_news_shocks.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+heterogeneity/simulate_stochastic_shocks.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+heterogeneity/solve.m",
+      "ok": false,
+      "errors": 36,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+identification/analysis.m",
+      "ok": false,
+      "errors": 39,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+identification/bruteforce.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+identification/checks.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+identification/checks_via_subsets.m",
+      "ok": false,
+      "errors": 36,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+identification/cosn.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/display.m",
+      "ok": false,
+      "errors": 48,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+identification/fjaco.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+identification/get_jacobians.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "+identification/get_minimal_state_representation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+identification/get_perturbation_params_derivs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+identification/get_perturbation_params_derivs_numerical_objective.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+identification/hessian_sparse.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_dynamic_g1.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_dynamic_g1p.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_dynamic_g1pp.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "index for dimension 2 is outside the proven bound 2"
+    },
+    {
+      "file": "+identification/legacy_dynamic_g2.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_dynamic_g2p.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "index for dimension 2 is outside the proven bound 0"
+    },
+    {
+      "file": "+identification/legacy_dynamic_g3.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_dynamic_g3p.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_dynamic_g4.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/legacy_idx.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+identification/legacy_static_g1p.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/numerical_objective.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+identification/plot.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+identification/run.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+identification/simulated_moment_uncertainty.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+identification/unfold_g3.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/unfold_g4.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+identification/vnorm.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+mom/Jtest.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+mom/check_irf_matching_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+mom/default_option_mom_values.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+mom/display_comparison_moments_irfs.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+mom/get_data_moments.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+mom/graph_comparison_irfs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'remove_fractional_xticks'"
+    },
+    {
+      "file": "+mom/matched_irfs_blocks.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'skipline'"
+    },
+    {
+      "file": "+mom/matched_moments_block.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+mom/mode_compute_gmm_smm.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'model_moments'"
+    },
+    {
+      "file": "+mom/mode_compute_irf_matching.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'prior_dist_names'"
+    },
+    {
+      "file": "+mom/objective_function.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "+mom/optimal_weighting_matrix.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+mom/print_info_on_estimation_settings.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+mom/run.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: RBrace"
+    },
+    {
+      "file": "+mom/set_correct_bounds_for_stderr_corr.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+mom/standard_errors.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+occbin/+ppf/compute_weights.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/+ppf/conditional_data_density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+occbin/+ppf/draw_particles.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+occbin/+ppf/engine.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+occbin/+ppf/graphs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+occbin/+ppf/joint_density.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/+ppf/marginal_density.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+occbin/+ppf/mcmc_draws.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/+ppf/simulated_density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'all_simulated_regimes'"
+    },
+    {
+      "file": "+occbin/+ppf/state_importance_sampling.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'do_resample'"
+    },
+    {
+      "file": "+occbin/+ppf/state_priordens.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+occbin/DSGE_smoother.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+occbin/IVF_core.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+occbin/IVF_posterior.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "+occbin/backward_map_regime.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/check_regimes.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+occbin/cost_function.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/dynare_resolve.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/findmin.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/forecast.m",
+      "ok": false,
+      "errors": 25,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+occbin/get_deriv.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/get_pq.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/graph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'remove_fractional_xticks'"
+    },
+    {
+      "file": "+occbin/irf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'skip'"
+    },
+    {
+      "file": "+occbin/kalman_update_algo_1.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+occbin/kalman_update_algo_3.m",
+      "ok": false,
+      "errors": 24,
+      "bucket": "Unknown",
+      "message": "index for dimension 2 is outside the proven bound 0"
+    },
+    {
+      "file": "+occbin/kalman_update_engine.m",
+      "ok": false,
+      "errors": 70,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/make_chart.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/map_regime.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/match_function.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+occbin/mkdata.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/mkdatap_anticipated_2constraints_dyn.m",
+      "ok": false,
+      "errors": 31,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/mkdatap_anticipated_dyn.m",
+      "ok": false,
+      "errors": 29,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/pkf_conditional_density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'all_updated_regimes'"
+    },
+    {
+      "file": "+occbin/plot_irfs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+occbin/plot_regimes.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+occbin/posterior_importance_sampling.m",
+      "ok": false,
+      "errors": 30,
+      "bucket": "RunMat:MirCallFallbackPolicyUnsupported",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/set_default_options.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: Minus"
+    },
+    {
+      "file": "+occbin/set_option.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/setup.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/shock_decomposition.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/smoother_plots.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+occbin/solve_one_constraint.m",
+      "ok": false,
+      "errors": 28,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/solve_two_constraints.m",
+      "ok": false,
+      "errors": 30,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+occbin/solver.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'simul'"
+    },
+    {
+      "file": "+occbin/squeeze_shock_decomposition.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+occbin/unpack_simulations.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+occbin/write_regimes_to_xls.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "+osr/get_variance_of_endogenous_variables.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+osr/objective.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+osr/run.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+pac/+bgp/get.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "+pac/+bgp/set.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pac/+estimate/init.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+pac/+estimate/iterative_ols.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: RBracket"
+    },
+    {
+      "file": "+pac/+estimate/nls.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "+pac/+mce/parameters.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'equations'"
+    },
+    {
+      "file": "+pac/+update/equation.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+pac/+update/expectation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pac/+update/parameters.m",
+      "ok": false,
+      "errors": 20,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pac/check.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pac/initialize.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pac/print.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pruned_SS/Q6_plication.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+pruned_SS/allVL1.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "Syntax error at position 2765: expected '}' to close cell literal (found: ''='') (expected: '}')"
+    },
+    {
+      "file": "+pruned_SS/bivmom.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+pruned_SS/commutation.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pruned_SS/duplication.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+pruned_SS/prodmom.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+pruned_SS/prodmom_deriv.m",
+      "ok": false,
+      "errors": 23,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+pruned_SS/pruned_state_space_system.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "+pruned_SS/quadruplication.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+pruned_SS/uperm.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+var_expectation/initialize.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+var_expectation/print.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+var_expectation/update.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "+var_expectation/update_parameters.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+wait_bar/close.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "+wait_bar/multi.m",
+      "ok": false,
+      "errors": 42,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "+wait_bar/run.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/add.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/admissible.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/bayes.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/cdf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/densities.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "RunMat:MirParallelCapabilityUnsupported",
+      "message": "parallel-region MIR requires the structured scheduler lowering capability"
+    },
+    {
+      "file": "@dprior/density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "@dprior/dprior.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/draw.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "@dprior/draws.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "@dprior/from_uniform.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "@dprior/has.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "@dprior/laplace_approximation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/length.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/marginal_pdf.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/mean.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/median.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/mode.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/moments.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "@dprior/private/compute_hyperparameters.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "@dprior/private/init_from_estim_params.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/private/init_from_name_value_pairs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "@dprior/private/legacy_bayestopt_to_dprior.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/private/parse_shape.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "@dprior/private/set_defaults_and_backcompute.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/pshape.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/subset.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "@dprior/subsref.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "Syntax error at position 896: expected '}' to close cell literal (found: ''idbeta'') (expected: '}')"
+    },
+    {
+      "file": "@dprior/variance.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "@dprior/vertcat.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "AIM/SPAimerr.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "AIM/SPAmalg.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "AIM/SPBuild_a.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "AIM/SPCopy_w.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "AIM/SPEigensystem.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'lasterr'"
+    },
+    {
+      "file": "AIM/SPExact_shift.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "AIM/SPNumeric_shift.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "AIM/SPObstruct.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "AIM/SPReduced_form.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "AIM/SPShiftright.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "CheckPath.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "MakeAllFigures.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'NumberofCurves'"
+    },
+    {
+      "file": "Tracing.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "accessors/get_conditional_forecast.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_conditional_forecast_dseries.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_irf.m",
+      "ok": false,
+      "errors": 18,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_mean.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_mean_no_globals.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "accessors/get_param_by_name.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_parameter_set_name.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "accessors/get_posterior_covariance.m",
+      "ok": false,
+      "errors": 17,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_posterior_irf.m",
+      "ok": false,
+      "errors": 17,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_posterior_timeseries.m",
+      "ok": false,
+      "errors": 23,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_shock_skew_by_name.m",
+      "ok": false,
+      "errors": 19,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_shock_stderr_by_name.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_smooth.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_smooth_dseries.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/get_update.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/set_param_value.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/set_param_value_locally.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "accessors/set_shock_skew_value.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "accessors/set_shock_stderr_value.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "accessors/set_shock_stderr_value_locally.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "aggregate.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "autoregressive_process_specification.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "backward/backward_model_forecast.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "backward/backward_model_irf.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "backward/calibrateresiduals.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "backward/checkdatabase.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'listofmissinglaggedexogenousvariables'"
+    },
+    {
+      "file": "backward/checkdatabaseforinversion.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "backward/shock_decomposition_backward.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "backward/simul_backward_linear_model.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "backward/simul_backward_model.m",
+      "ok": false,
+      "errors": 22,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "backward/simul_backward_nonlinear_model.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "backward/simul_static_model.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "build_two_dim_hessian.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "cellofchararraymaxlength.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "check.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "check_consistency_covariances.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "check_list_of_variables.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "check_matlab_path.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '}' to close cell literal"
+    },
+    {
+      "file": "check_model.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "cherrypick.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "clear_persistent_variables.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'list_of_functions_to_be_cleared'"
+    },
+    {
+      "file": "cli/+cli/+evaluate/likelihood.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/+cli/+evaluate/posterior_kernel.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/+cli/+evaluate/prior.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/+cli/+evaluate/smoother.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/+cli/check.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/+cli/steady.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/dcontrib.m",
+      "ok": false,
+      "errors": 43,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/estimate.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "cli/print_moments_implied_prior.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "cli/prior.m",
+      "ok": false,
+      "errors": 24,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "cli/search.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "collapse_figures_in_tabgroup.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "compute_overall_acceptance_ratio.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "compute_posterior_covariance_matrix.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "compute_trend_coefficients.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "convergence_diagnostics/geweke_chi2_test.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "right-division column dimensions 1 and 2 do not agree"
+    },
+    {
+      "file": "convergence_diagnostics/geweke_moments.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "convergence_diagnostics/mcmc_diagnostics.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: Newline"
+    },
+    {
+      "file": "convergence_diagnostics/mcmc_diagnostics_core.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "convergence_diagnostics/mcmc_ifac.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "convergence_diagnostics/raftery_lewis.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "datatomfile.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "default_option_values.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'num_procs'"
+    },
+    {
+      "file": "discretionary_policy/discretionary_policy.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "discretionary_policy/discretionary_policy_1.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "discretionary_policy/discretionary_policy_engine.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "discretionary_policy/discretionary_policy_initialization.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "disp_steady_state.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "display_problematic_vars_Jacobian.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "display_static_residuals.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/beta_specification.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_mean.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_prune_distribution.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_quantile.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_singular_to_csn_proper.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_statespace_linear_transform.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_update_specification.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/closed_skew_normal/csn_variance.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "distributions/closed_skew_normal/rand_multivariate_csn.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/compute_prior_mode.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/gamma_specification.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/gaussian/gaussian_cdf_derivative.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "distributions/gaussian/gaussian_log_mvncdf_mendell_elston.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "distributions/ig1fun.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/inverse_gamma_specification.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/lpdfgweibull.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "distributions/mode_and_variance_to_mean.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/multivariate_normal_pdf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/multivariate_student_pdf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/prior_dist_names.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "distributions/qmc_scrambled.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/rand_inverse_wishart.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/rand_matrix_normal.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/rand_multivariate_normal.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "distributions/rand_multivariate_student.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "distributions/weibull_specification.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "dprintf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "dsample.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "dyn2vec.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "dyn_figure.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "dyn_saveas.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "dyn_table.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "dyn_unvech.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "dyn_vech.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "dynare.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'warning_config'"
+    },
+    {
+      "file": "dynare_config.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "dynare_squeeze.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "dynasave.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "dynatype.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "dynsec2hms.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "dyntable.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "endogenous_prior_restrictions.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "ep/cartesian_product_of_sets.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ep/cubature_with_gaussian_weight.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected 'end'"
+    },
+    {
+      "file": "ep/ep_accuracy_check.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ep/ep_problem_0.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "transpose requires a numeric, logical, or character value"
+    },
+    {
+      "file": "ep/ep_problem_1.m",
+      "ok": false,
+      "errors": 22,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ep/euler_equation_error.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'innovations'"
+    },
+    {
+      "file": "ep/extended_path.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ep/extended_path_core.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ep/extended_path_homotopy.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ep/extended_path_initialization.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ep/extended_path_mc.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "RunMat:MirParallelCapabilityUnsupported",
+      "message": "parallel-region MIR requires the structured scheduler lowering capability"
+    },
+    {
+      "file": "ep/extended_path_shocks.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ep'"
+    },
+    {
+      "file": "ep/gauss_hermite_weights_and_nodes.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ep/gauss_legendre_weights_and_nodes.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ep/get_block_world_nbr.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ep/setup_integration_nodes.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ep/setup_stochastic_perfect_foresight_model_solver.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ep/solve_stochastic_perfect_foresight_model_0.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ep/solve_stochastic_perfect_foresight_model_1.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "erase_compiled_function.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'mexext'"
+    },
+    {
+      "file": "estimation/CutSample.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/GetAllPosteriorDraws.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/GetPosteriorMeanVariance.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/GetPosteriorParametersStatistics.m",
+      "ok": false,
+      "errors": 28,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/PlotPosteriorDistributions.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/PosteriorIRF.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/PosteriorIRF_core1.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/PosteriorIRF_core2.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'remove_fractional_xticks'"
+    },
+    {
+      "file": "estimation/ReshapeMatFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/TaRB_optimizer_wrapper.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/calibrate_mh_scale_parameter.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/check_bounds_and_definiteness_estimation.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/check_dsge_var_model.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/check_for_calibrated_covariances.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "operator is not defined for the proven operand value category"
+    },
+    {
+      "file": "estimation/check_name.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/check_particle_filter_options.m",
+      "ok": false,
+      "errors": 20,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/check_posterior_analysis_data.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/check_posterior_sampler_options.m",
+      "ok": false,
+      "errors": 95,
+      "bucket": "RunMat:MirCallFallbackPolicyUnsupported",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/check_prior_analysis_data.m",
+      "ok": false,
+      "errors": 14,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/check_prior_bounds.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/chol_SE.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "estimation/compute_Pinf_Pstar.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected ']'"
+    },
+    {
+      "file": "estimation/compute_mh_covariance_matrix.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/conditional_variance_decomposition_ME_mc_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/conditional_variance_decomposition_mc_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/correlation_mc_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected 'end'"
+    },
+    {
+      "file": "estimation/covariance_mc_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/delete_mh_history_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/display_estimation_results_table.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/do_parameter_initialization.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/draw_init_state_from_smoother.m",
+      "ok": false,
+      "errors": 26,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/dsge_conditional_likelihood_1.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "estimation/dsge_likelihood.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "estimation/dsge_simulated_theoretical_conditional_variance_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/dsge_simulated_theoretical_correlation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/dsge_simulated_theoretical_covariance.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/dsge_simulated_theoretical_variance_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/dsge_var_likelihood.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "estimation/dynare_estimation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/dynare_estimation_1.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: RBrace"
+    },
+    {
+      "file": "estimation/dynare_estimation_init.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/endogenous_prior.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/evaluate_likelihood.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/evaluate_posterior_kernel.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/evaluate_prior.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/execute_prior_posterior_function.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/fill_mh_mode.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/generate_trace_plots.m",
+      "ok": false,
+      "errors": 47,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/get_init_state.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/get_init_state_estim_params.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/get_init_state_prior.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "estimation/get_matrix_entries_for_psd_check.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/get_moments_size.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/get_name_of_the_last_mh_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/get_posterior_folder_name.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/get_posterior_parameters.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/get_posterior_subsample.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/get_pstar.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'mm'"
+    },
+    {
+      "file": "estimation/init_state_endogenous_prior.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/initial_estimation_checks.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/isprior.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/list_of_parameters_calibrated_as_Inf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/list_of_parameters_calibrated_as_NaN.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/load_first_mh_history_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/load_last_mh_history_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/lpdfgam.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/lpdfgbeta.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/lpdfig1.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/lpdfig2.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/lpdfnorm.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/marginal_density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/maximize_prior_density.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/mh_autocorrelation_function.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/minus_logged_prior_density.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'return4'"
+    },
+    {
+      "file": "estimation/mode_check.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/model_comparison.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/non_linear_dsge_likelihood.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "estimation/online/isonline.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/online/online_auxiliary_filter.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'number_of_state_variables'"
+    },
+    {
+      "file": "estimation/optimize_prior.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/plot_priors.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/pm3.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "estimation/pm3_core.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/posterior_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/posterior_moments.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/posterior_sampler.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/posterior_sampler_core.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'gcp'"
+    },
+    {
+      "file": "estimation/posterior_sampler_initialization.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/posterior_sampler_iteration.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/print_table_prior.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/prior_analysis.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "RunMat:MirCallFallbackPolicyUnsupported",
+      "message": "MIR workspace-first call fallback policy None is not supported for static callee BoundFunction(FunctionId(1))"
+    },
+    {
+      "file": "estimation/prior_bounds.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/prior_posterior_statistics.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/prior_posterior_statistics_core.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/prior_sampler.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/qr2.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/recursive_moments.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/rejection_objective_function.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/resampler/kitagawa.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/rotated_slice_sampler.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "estimation/set_default_initial_params.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/set_init_state.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "estimation/set_jscale.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/set_measurement_errors.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/set_measurement_info.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/set_number_of_subdraws.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/set_prior.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "estimation/set_smoother_info.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "estimation/size_of_the_reduced_form_model.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/slice_sampler.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "estimation/smc/dime.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'funobj'"
+    },
+    {
+      "file": "estimation/smc/dsmh.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/smc/hssmc.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/smc/isdime.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/smc/isdsmh.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/smc/ishssmc.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/smc/logsumexp.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/smc/smc_samplers_initialization.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "RunMat:MirParallelCapabilityUnsupported",
+      "message": "parallel-region MIR requires the structured scheduler lowering capability"
+    },
+    {
+      "file": "estimation/smc/tempered_likelihood.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/smc/trace_plot_dime.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "estimation/trace_plot.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/uniform_specification.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "estimation/update_last_mh_history_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/var_sample_moments.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "estimation/variance_decomposition_ME_mc_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/variance_decomposition_mc_analysis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "estimation/write_mh_history_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "evaluate_static_model.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "evaluate_steady_state.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "evaluate_steady_state_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "exactcontains.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "exactstrrep.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "formdata.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "fwriten.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "getPowerDeriv.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "get_all_parameters.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "get_ar_ec_matrices.m",
+      "ok": false,
+      "errors": 75,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_aux_variable_id.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_build_dir.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "get_cells_id.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "get_companion_matrix.m",
+      "ok": false,
+      "errors": 40,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "get_companion_matrix_legacy.m",
+      "ok": false,
+      "errors": 23,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "get_date_of_a_file.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "get_difference_order.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_dynare_random_generator_state.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "get_equation_name_by_number.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "get_equation_number_by_tag.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "get_error_message.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "get_existing_subsamples_indx.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_file_extension.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "get_lhs_and_rhs.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_lower_cholesky_covariance.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_new_or_existing_ei_index.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_path_to_mex_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "get_subsamples_range_indx.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "get_the_name.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "get_variables_and_parameters_in_equation.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "get_variables_and_parameters_in_expression.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "get_variables_list.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "global_initialization.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "hess_element.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "hessian.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "histvalf.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "histvalf_initvalf.m",
+      "ok": false,
+      "errors": 32,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "internals.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "isauxiliary.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "isdiff.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "islagof.m",
+      "ok": false,
+      "errors": 25,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "isoctave.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "isolder.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "issmc.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "iszero.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "jacob_element.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "kalman/DsgeSmoother.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'steady_state'"
+    },
+    {
+      "file": "kalman/build_selection_matrix.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "kalman/evaluate_smoother.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "kalman/get_Qvec_heteroskedastic_filter.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "kalman/kalman_smoother_pruned_skewed.m",
+      "ok": false,
+      "errors": 15,
+      "bucket": "Unknown",
+      "message": "operator is not defined for the proven operand value category"
+    },
+    {
+      "file": "kalman/likelihood/check_stochastic_singularity.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/likelihood/computeDLIK.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "kalman/likelihood/kalman_filter.m",
+      "ok": false,
+      "errors": 28,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/likelihood/kalman_filter_d.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "kalman/likelihood/kalman_filter_fast.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/likelihood/kalman_filter_pruned_skewed.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'Gamma_t_t'"
+    },
+    {
+      "file": "kalman/likelihood/kalman_filter_ss.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/likelihood/missing_observations_kalman_filter.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'log_dF'"
+    },
+    {
+      "file": "kalman/likelihood/missing_observations_kalman_filter_d.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "kalman/likelihood/univariate_computeDLIK.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "kalman/likelihood/univariate_computeDstate.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/likelihood/univariate_kalman_filter.m",
+      "ok": false,
+      "errors": 22,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/likelihood/univariate_kalman_filter_d.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "kalman/likelihood/univariate_kalman_filter_ss.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kalman/missing_DiffuseKalmanSmootherH1_Z.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "kalman/missing_DiffuseKalmanSmootherH3_Z.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "kalman/plot_classical_smoother_results.m",
+      "ok": false,
+      "errors": 38,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "kalman/save_display_classical_smoother_results.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "kalman/set_Kalman_starting_values.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "kalman/steady_state_kalman_gain.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "kalman/store_smoother_results.m",
+      "ok": false,
+      "errors": 33,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "kernel_density_estimate.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "latex/collect_latex_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "latex/dyn_latex_table.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "latex/isbayes.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "latex/write_latex_definitions.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "latex/write_latex_parameter_table.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "latex/write_latex_prior_table.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "list_of_functions_to_be_cleared.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "lmmcp/catstruct.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "lmmcp/lmmcp.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "lmmcp/mcp_func.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "load_m_file_data_legacy.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "load_mat_file_data_legacy.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "loadjson_.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "long_run_variance.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "matlab_ver_less_than.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "matrix_solver/fastgensylv.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "matrix_solver/gensylv_fp.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "matrix_solver/lyapunov_solver.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "matrix_solver/lyapunov_symm.m",
+      "ok": false,
+      "errors": 60,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "matrix_solver/quadratic_matrix_equation_solver.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "matrix_solver/sylvester3.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "matrix_solver/sylvester3a.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "mex/k_order_perturbation.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "mex/k_order_welfare.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "mex/qmc_sequence.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "mh_optimal_bandwidth.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'n'"
+    },
+    {
+      "file": "missing/contains/contains.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/issquare/issquare.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/mex/cycle_reduction/cycle_reduction.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/mex/disclyap_fast/disclyap_fast.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/mex/gensylv/gensylv.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/mex/kronecker/A_times_B_kronecker_C.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/mex/kronecker/sparse_hessian_times_B_kronecker_C.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "missing/mex/local_state_space_iterations/local_state_space_iteration_2.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '='"
+    },
+    {
+      "file": "missing/mex/logarithmic_reduction/logarithmic_reduction.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "missing/mex/mjdgges/mjdgges.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "missing/mex/num_procs/num_procs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "missing/pagemldivide/pagemldivide.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/pagemtimes/pagemtimes.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/rows_columns/columns.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/rows_columns/rows.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/splitlines/splitlines.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/ahrens_dieter.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/berman.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/best_1978.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/best_1983.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/cheng.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/johnk.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/knuth.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/+gamrnd/weibull_rejection.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/betacdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/betainv.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/betapdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/betarnd.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/chi2cdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/chi2inv.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/common_size.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "missing/stats/corr.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "missing/stats/exprnd.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats/gamcdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/gaminv.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/gampdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/gamrnd.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "missing/stats/kurtosis.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "missing/stats/mvncdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "missing/stats/nanmean.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/normcdf.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/norminv.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/normpdf.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/quantile.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "missing/stats/skewness.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "missing/stats/stdnormal_cdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/stdnormal_inv.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/stdnormal_pdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/wblcdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats/wblinv.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '='"
+    },
+    {
+      "file": "missing/stats/wblrnd.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats_matlab/bvncdf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/stats_matlab/mvtcdfqmc.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/stats_matlab/tvncdf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "missing/struct2array/struct2array.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "missing/vec/vec.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "model_diagnostics.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: Minus"
+    },
+    {
+      "file": "model_info.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'skipline'"
+    },
+    {
+      "file": "model_inversion.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "moments.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "moments/UnivariateSpectralDensity.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "moments/add_filter_subtitle.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "moments/check_measurement_error_requested_vars.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "moments/compute_moments_varendo.m",
+      "ok": false,
+      "errors": 41,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "moments/compute_variance_decomposition.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "moments/conditional_variance_decomposition.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "moments/disp_moments.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "moments/disp_th_moments.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "moments/disp_th_moments_pruned_state_space.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "moments/display_conditional_variance_decomposition.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "moments/display_unconditional_variance_decomposition.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "moments/get_filtered_time_series.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "moments/th_autocovariances.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ms-sbvar/check_datafile_years_assigned.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/clean_files_for_second_type_of_mex.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/clean_ms_estimation_files.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/clean_ms_forecast_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/clean_ms_init_files.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/clean_ms_irf_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/clean_ms_mdd_files.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/clean_ms_probabilities_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/clean_ms_simulation_files.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/clean_ms_variance_decomposition_files.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/clean_sbvar_files.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/create_dir.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/delete_dir_if_exists.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "ms-sbvar/delete_if_exists.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/dyn_save_graph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/identification/exclusions.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ms-sbvar/identification/lower_cholesky.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ms-sbvar/identification/upper_cholesky.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ms-sbvar/initialize_ms_sbvar_options.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/load_flat_file.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ms-sbvar/ms_compute_mdd.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "ms-sbvar/ms_compute_probabilities.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/ms_estimation.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/ms_forecast.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/ms_irf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/ms_mardd.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'msstart2'"
+    },
+    {
+      "file": "ms-sbvar/ms_sbvar_setup.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'Fhat'"
+    },
+    {
+      "file": "ms-sbvar/ms_simulation.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/ms_variance_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/ms_write_markov_file.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/ms_write_mhm_input.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/msstart2.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'msstart_setup'"
+    },
+    {
+      "file": "ms-sbvar/msstart_setup.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "'format' command syntax accepts only one argument; found `"
+    },
+    {
+      "file": "ms-sbvar/plot_ms_forecast.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/plot_ms_irf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/plot_ms_probabilities.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/plot_ms_variance_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "ms-sbvar/plot_ms_variance_decomposition_error_bands.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "ms-sbvar/reshape_ascii_forecast_data.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/reshape_ascii_irf_data.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/reshape_ascii_variance_decomposition_data.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/sbvar.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/set_file_tags.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/set_ms_estimation_file.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/set_ms_simulation_file.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "ms-sbvar/svar_global_identification_check.m",
+      "ok": false,
+      "errors": 7,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "multivariate_sample_autocovariance.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "mydelete.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "name2index.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "nonlinear-filters/auxiliary_particle_filter.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ghx'"
+    },
+    {
+      "file": "nonlinear-filters/conditional_particle_filter.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/gaussian_filter.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/gaussian_filter_bank.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/gaussian_mixture_densities.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/gaussian_mixture_filter.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/gaussian_mixture_filter_bank.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/importance_sampling.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/iterate_law_of_motion.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'number_of_structural_innovations'"
+    },
+    {
+      "file": "nonlinear-filters/measurement_equations.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/multivariate_smooth_resampling.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/neff.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/nonlinear_kalman_filter.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "nonlinear-filters/probability.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/probability2.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/probability3.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/reduced_rank_cholesky.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "nonlinear-filters/resample.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/residual_resampling.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/sequential_importance_particle_filter.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/solve_model_for_online_filter.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/spherical_radial_sigma_points.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/traditional_resampling.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "nonlinear-filters/univariate_smooth_resampling.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "nonlinear-filters/unscented_sigma_points.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "octave_ver_less_than.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected 'end'"
+    },
+    {
+      "file": "ols/common_parsing.m",
+      "ok": false,
+      "errors": 15,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "ols/create_sur_report.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '}' to close cell literal"
+    },
+    {
+      "file": "ols/dyn_ols.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "ols/getEquationsByTags.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ols/get_ast.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ols/handle_constant_eqs.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ols/parse_ols_style_equation.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '}' to close cell literal"
+    },
+    {
+      "file": "ols/pooled_fgls.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ols/pooled_ols.m",
+      "ok": false,
+      "errors": 29,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "ols/put_in_sur_form.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ols/sur.m",
+      "ok": false,
+      "errors": 20,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "ols/write_param_init_inc_file.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "olsgibbs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "one_sided_hp_filter.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimal_policy/dyn_ramsey_static.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "call requests 3 outputs but at most 1 are available"
+    },
+    {
+      "file": "optimal_policy/evaluate_planner_objective.m",
+      "ok": false,
+      "errors": 16,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimal_policy/get_optimal_policy_discount_factor.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimal_policy/mult_elimination.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/analytic_gradient_wrapper.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/apprgrdn.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/bfgsi1.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/cmaes.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "optimization/csminit1.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/csminwel1.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/csolve.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/dynare_minimize_objective.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "optimization/dynare_solve.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "optimization/gauss_newton.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "optimization/gmhmaxlik.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/gmhmaxlik_core.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/jacobian.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "optimization/lnsrch1.m",
+      "ok": false,
+      "errors": 13,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/mr_gstep.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/mr_hessian.m",
+      "ok": false,
+      "errors": 10,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/newrat.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/newton_solve.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "optimization/numgrad2.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/numgrad3.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/numgrad3_.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'f2'"
+    },
+    {
+      "file": "optimization/numgrad5.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/numgrad5_.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected multi-assignment target"
+    },
+    {
+      "file": "optimization/options2cell.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/penalty_objective_function.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/simplex_optimization_routine.m",
+      "ok": false,
+      "errors": 36,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/simpsa.m",
+      "ok": false,
+      "errors": 21,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "optimization/simpsaget.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "optimization/simpsaset.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "optimization/simulated_annealing.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'fp'"
+    },
+    {
+      "file": "optimization/solve1.m",
+      "ok": false,
+      "errors": 14,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "optimization/solve_one_boundary.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'g1a'"
+    },
+    {
+      "file": "optimization/solvopt.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "optimization/step_length_correction.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "optimization/trust_region.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "pac-tools/a2alpha.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "pac-tools/buildGmatrix.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "pac-tools/buildGmatrixWithAlphaAndBeta.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "pac-tools/hVectors.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "pac-tools/iota.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "parallel/AnalyseComputationalEnvironment.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/CreateTimeString.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "parallel/GiveCPUnumber.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/InitializeComputationalEnvironment.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "parallel/closeSlave.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "parallel/distributeJobs.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "parallel/dynareParallelDelete.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "parallel/dynareParallelDeleteNewFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/dynareParallelDir.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/dynareParallelFindNewFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "parallel/dynareParallelGetFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/dynareParallelGetNewFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/dynareParallelListAllFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "parallel/dynareParallelMkDir.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/dynareParallelRmDir.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: RBracket"
+    },
+    {
+      "file": "parallel/dynareParallelSendFiles.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "parallel/dynareParallelSnapshot.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "parallel/fMessageStatus.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "parallel/fParallel.m",
+      "ok": false,
+      "errors": 18,
+      "bucket": "RunMat:MirCallTargetNameInvalid",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "parallel/masterParallel.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected 'end'"
+    },
+    {
+      "file": "parallel/setup_parallel_execution.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "parallel/slaveParallel.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "Syntax error at position 3631: expected member name after '.' (found: 'global') (expected: identifier)"
+    },
+    {
+      "file": "parallel/storeGlobalVars.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "parallel/struct2local.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "partial_information/PCL_Part_info_irf.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "partial_information/PCL_Part_info_moments.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "partial_information/PCL_resol.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "partial_information/PI_gensys.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "Unexpected adjacency: interpret as function call? Use parentheses (e.g., foo(b(1)))."
+    },
+    {
+      "file": "partial_information/PI_gensys_singularC.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'lastwarn'"
+    },
+    {
+      "file": "partial_information/PI_qzdiv.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "partial_information/PI_qzswitch.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected ']'"
+    },
+    {
+      "file": "partial_information/disc_riccati_fast.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "partial_information/dr1_PI.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "perfect-foresight-models/@pardiso/pardiso.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "perfect-foresight-models/back_subst_lbj.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/compute_maxerror.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/construct_simulation_dseries.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "perfect-foresight-models/controlled_paths_by_period.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "perfect-foresight-models/controlled_paths_substitute_stacked_jacobian.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/display_critical_variables.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "perfect-foresight-models/extract_from_database.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "perfect-foresight-models/get_simulation_periods.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "perfect-foresight-models/lin_solve.m",
+      "ok": false,
+      "errors": 18,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "perfect-foresight-models/linear_perfect_foresight_problem.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "perfect-foresight-models/make_ex_.m",
+      "ok": false,
+      "errors": 23,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "perfect-foresight-models/make_y_.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "perfect-foresight-models/perfect_foresight_mcp_problem.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "perfect-foresight-models/perfect_foresight_setup.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "perfect-foresight-models/perfect_foresight_solver.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: Newline"
+    },
+    {
+      "file": "perfect-foresight-models/perfect_foresight_solver_core.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "Syntax error at position 8648: expected '}' to close cell literal (found: '2') (expected: '}')"
+    },
+    {
+      "file": "perfect-foresight-models/perfect_foresight_with_expectation_errors_setup.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "non-concatenated dimension 1 disagrees across inputs (0 versus 1)"
+    },
+    {
+      "file": "perfect-foresight-models/perfect_foresight_with_expectation_errors_solver.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'homotopy_completion_share'"
+    },
+    {
+      "file": "perfect-foresight-models/setup_time_recursive_block_simul.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/sim1.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "unexpected token: Minus"
+    },
+    {
+      "file": "perfect-foresight-models/sim1_lbj.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/sim1_linear.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/sim1_purely_backward.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "perfect-foresight-models/sim1_purely_forward.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "perfect-foresight-models/sim1_purely_static.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:MirLoweringError",
+      "message": "feval: function argument cannot be a comma-list expansion"
+    },
+    {
+      "file": "perfect-foresight-models/solve_block_decomposed_problem.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "perfect-foresight-models/solve_stacked_linear_problem.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/solve_stacked_problem.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'steadystate_y'"
+    },
+    {
+      "file": "perfect-foresight-models/solve_two_boundaries_lbj.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "perfect-foresight-models/solve_two_boundaries_stacked.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'g1aa'"
+    },
+    {
+      "file": "plot_contributions.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'lineno'"
+    },
+    {
+      "file": "pltorg.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "print_bytecode_dynamic_model.m",
+      "ok": false,
+      "errors": 15,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "print_bytecode_static_model.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "print_expectations.m",
+      "ok": false,
+      "errors": 94,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "print_info.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "printline.m",
+      "ok": false,
+      "errors": 6,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "read_key_value_string.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "read_variables.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "remove_aux_variables_from_expression.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@page/addData.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@page/addGraph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@page/addParagraph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@page/addSection.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@page/addSeries.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@page/addTable.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@page/addVspace.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@page/end.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "reporting/@page/numSections.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@page/page.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@page/write.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@paragraph/paragraph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@paragraph/write.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "reporting/@report/addData.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/addGraph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/addPage.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report/addParagraph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/addSection.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/addSeries.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/addTable.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/addVspace.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report/compile.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ismac'"
+    },
+    {
+      "file": "reporting/@report/numPages.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report/report.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@report/write.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "reporting/@report_data/report_data.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@report_data/writeDataForTable.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report_graph/addSeries.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_graph/end.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "reporting/@report_graph/report_graph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@report_graph/write.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_graph/writeGraphFile.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "reporting/@report_series/getNameForLegend.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report_series/getRange.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_series/getTexName.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@report_series/isZero.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_series/printSeries.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_series/report_series.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@report_series/setDataToZeroFromZeroTol.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_series/writeSeriesForGraph.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'ispc'"
+    },
+    {
+      "file": "reporting/@report_series/writeSeriesForTable.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_series/ymax.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_series/ymin.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_table/addData.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_table/addSeries.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_table/report_table.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "reporting/@report_table/write.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@report_table/writeTableFile.m",
+      "ok": false,
+      "errors": 27,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "reporting/@section/addData.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@section/addGraph.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@section/addParagraph.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@section/addSeries.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@section/addTable.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@section/addVspace.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@section/end.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier"
+    },
+    {
+      "file": "reporting/@section/numElements.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/@section/section.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "reporting/@section/write.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/@vspace/vspace.m",
+      "ok": false,
+      "errors": 11,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "reporting/@vspace/write.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "reporting/addCommasToCellStr.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "reporting/getMaxRange.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "rewrite_aux_variable.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "row_header_width.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "rplot.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "sample_autocovariance.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "sample_hp_filter.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "save_params_and_steady_state.m",
+      "ok": false,
+      "errors": 12,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "select_from_table.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "send_endogenous_variables_to_workspace.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "send_exogenous_variables_to_workspace.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "send_irfs_to_workspace.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "set_all_parameters.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "set_default_option.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "set_dynare_random_generator_state.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "set_dynare_seed.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "set_dynare_seed_local_options.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "set_dynare_threads.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "set_exogenous_variables_for_simulation.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "set_historical_values.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "set_local_param_value.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "set_observed_exogenous_variables.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "set_parameters.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "set_parameters_locally.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "shock_decomposition/WriteShockDecomp2Excel.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:AggregateShapeMismatch",
+      "message": "tensor literal rows must have consistent column counts"
+    },
+    {
+      "file": "shock_decomposition/annualized_shock_decomposition.m",
+      "ok": false,
+      "errors": 29,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "shock_decomposition/epilogue_shock_decomposition.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "shock_decomposition/expand_group.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "shock_decomposition/graph_decomp.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "shock_decomposition/graph_decomp_detail.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected identifier or '~'"
+    },
+    {
+      "file": "shock_decomposition/initial_condition_decomposition.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "shock_decomposition/plot_shock_decomposition.m",
+      "ok": false,
+      "errors": 56,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "shock_decomposition/realtime_shock_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "shock_decomposition/set_default_initial_condition_decomposition_options.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "shock_decomposition/set_default_plot_shock_decomposition_options.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "shock_decomposition/shock_decomposition.m",
+      "ok": false,
+      "errors": 18,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "shock_decomposition/squeeze_shock_decomposition.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "skipline.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "smoother2histval.m",
+      "ok": false,
+      "errors": 29,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "static_model_inversion.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "steady.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'last_successful_params'"
+    },
+    {
+      "file": "stochastic_solver/AIM_first_order_solver.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'aimCode'"
+    },
+    {
+      "file": "stochastic_solver/compute_decision_rules.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "stochastic_solver/disp_dr.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "stochastic_solver/dyn_first_order_solver.m",
+      "ok": false,
+      "errors": 65,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "stochastic_solver/dyn_second_order_solver.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "stochastic_solver/dynare_resolve.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "stochastic_solver/getIrfShocksIndx.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "stochastic_solver/irf.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "stochastic_solver/k_order_pert.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "stochastic_solver/kalman_transition_matrix.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "stochastic_solver/resol.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "stochastic_solver/select_qz_criterium_value.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "stochastic_solver/set_state_space.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "stochastic_solver/simult.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "stochastic_solver/simult_.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "stochastic_solver/simult_varexo_det.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": ""
+    },
+    {
+      "file": "stochastic_solver/stoch_simul.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'remove_fractional_xticks'"
+    },
+    {
+      "file": "stochastic_solver/stochastic_solvers.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
+    },
+    {
+      "file": "subst_auxvar.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "substitute.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "surgibbs.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "symmetric_matrix_index.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "test_for_deep_parameters_calibration.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "update_all_parameters_in_workspace.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "user_has_matlab_license.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "user_has_octave_package.m",
+      "ok": false,
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/dataset/compute_dataset_info.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/dataset/describe_missing_data.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/dataset/descriptive_statistics.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'varargin'"
+    },
+    {
+      "file": "utilities/dataset/lagged.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/dataset/makedataset.m",
+      "ok": false,
+      "errors": 37,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/dataset/nanautocovariance.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/dataset/nancovariance.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/dataset/nanmoments.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/dataset/nanvariance.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/dataset/quarterly2annual.m",
+      "ok": false,
+      "errors": 33,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/doc/dynInfo.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/doc/get_internal_doc_block.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "utilities/estimation/check_hessian_at_the_mode.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/estimation/check_mode_file.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "utilities/estimation/check_prior_stderr_corr_skew.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/estimation/check_steady_state_changes_parameters.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/estimation/get_estimated_parameters_indices.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/estimation/opt4nls.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/estimation/rewrite_equation_with_tables.m",
+      "ok": false,
+      "errors": 5,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "utilities/estimation/set_mcmc_jumping_covariance.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/estimation/set_mcmc_prior_bounds.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'M_'"
+    },
+    {
+      "file": "utilities/estimation/tune_mcmc_mh_jscale_wrapper.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/estimation/write_residuals_routine.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/estimation/write_ssr_routine.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/general/clean_current_folder.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "member access requires a struct or object value"
+    },
+    {
+      "file": "utilities/general/compare_vectors.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/compute_nullspace.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "utilities/general/delete_stale_file.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/demean.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/disp_verbose.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/display_parameter_values.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "utilities/general/get_all_variables_but_lagged_leaded_exogenous.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/get_labels_transformed_vars.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/general/indices_lagged_leaded_exogenous_variables.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/isaletter.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/isanynan.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/isconst.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/iseven.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/isinestimationobjective.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/isint.m",
+      "ok": false,
+      "errors": 4,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/general/isodd.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/ispd.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "utilities/general/isquare.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/log_variable.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/nandemean.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "utilities/general/ndim.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/general/remove_fractional_xticks.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected '('"
+    },
+    {
+      "file": "utilities/graphics/colorspace.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'Conversion'"
+    },
+    {
+      "file": "utilities/graphics/distinguishable_colors.m",
+      "ok": false,
+      "errors": 3,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "utilities/version/ver_greater_than.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/version/ver_greater_than_equal.m",
+      "ok": true,
+      "errors": 0
+    },
+    {
+      "file": "utilities/version/ver_less_than.m",
+      "ok": false,
+      "errors": 9,
+      "bucket": "Unknown",
+      "message": "brace indexing requires a cell-like value"
+    },
+    {
+      "file": "var_forecast.m",
+      "ok": false,
+      "errors": 21,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "varlist_indices.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "warning_config.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "writeVarExpectationFunction.m",
+      "ok": false,
+      "errors": 25,
+      "bucket": "RunMat:MirCallFallbackPolicyUnsupported",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "write_expectations.m",
+      "ok": false,
+      "errors": 63,
+      "bucket": "Unknown",
+      "message": "local may be read before assignment on some control-flow paths"
+    },
+    {
+      "file": "write_pac_mce_expectations.m",
+      "ok": false,
+      "errors": 31,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "writecellofchar.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:ParseError",
+      "message": "expected 'end'"
+    },
+    {
+      "file": "writedata.m",
+      "ok": false,
+      "errors": 1,
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
+    },
+    {
+      "file": "writedata_text.m",
+      "ok": false,
+      "errors": 8,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
+    },
+    {
+      "file": "writematrixofchar.m",
+      "ok": true,
+      "errors": 0
+    }
+  ],
+  "elapsed_sec": 410.9
+}

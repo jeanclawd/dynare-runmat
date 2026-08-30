@@ -1,8 +1,8 @@
 {
   "tree": "/root/Projects/dynare-runmat/build/shimmed",
-  "total": 10,
-  "passed": 7,
-  "pass_rate": 70.0,
+  "total": 14,
+  "passed": 11,
+  "pass_rate": 78.57,
   "results": [
     {
       "probe": "dynsec2hms",
@@ -107,7 +107,47 @@
       "expected": "done",
       "actual": "done",
       "returncode": 0
+    },
+    {
+      "probe": "skipline_default_arg",
+      "status": "pass",
+      "functions": [
+        "skipline.m"
+      ],
+      "expected": "done",
+      "actual": "done",
+      "returncode": 0
+    },
+    {
+      "probe": "exactcontains_hit",
+      "status": "pass",
+      "functions": [
+        "exactcontains.m"
+      ],
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "probe": "exactcontains_miss",
+      "status": "pass",
+      "functions": [
+        "exactcontains.m"
+      ],
+      "expected": "0",
+      "actual": "0",
+      "returncode": 0
+    },
+    {
+      "probe": "dprintf",
+      "status": "pass",
+      "functions": [
+        "dprintf.m"
+      ],
+      "expected": "5-x",
+      "actual": "5-x",
+      "returncode": 0
     }
   ],
-  "elapsed_sec": 4.1
+  "elapsed_sec": 5.5
 }

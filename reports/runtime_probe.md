@@ -2,8 +2,8 @@
 
 Functions taken from the shimmed Dynare tree, called with real inputs, compared against MATLAB's answer.
 
-- Probes: **10**
-- Passing: **7** (70.0%)
+- Probes: **14**
+- Passing: **11** (78.57%)
 
 ### ✅ `dynsec2hms`
 
@@ -80,4 +80,20 @@ driver.m @ driver.m:3:1
 ### ✅ `skipline`
 
 - source: skipline.m
+
+### ✅ `skipline_default_arg`
+
+- source: skipline.m
+
+### ✅ `exactcontains_hit`
+
+- source: exactcontains.m
+
+### ✅ `exactcontains_miss`
+
+- source: exactcontains.m
+
+### ✅ `dprintf`
+
+- source: dprintf.m
 
