@@ -13,12 +13,20 @@ and track the gap as it closes.
 
 Dynare is ~1,000 `.m` files of mature, idiomatic MATLAB. It leans on the parts
 of the language that are easy to write and hard to reimplement: struct
-auto-vivification, comma-separated lists, `switch` on strings, sparse linear
-algebra, and — at the core of its first-order perturbation solver — the
-generalized Schur (QZ) decomposition with eigenvalue reordering.
+auto-vivification, `switch` on strings, sparse linear algebra, and — at the core
+of its first-order perturbation solver — the generalized Schur (QZ)
+decomposition with eigenvalue reordering.
 
 So "does it run" is the wrong first question. The useful questions are *how far
 does it get*, and *which specific gap is in the way*.
+
+Measuring turned up an answer that was not the expected one. The biggest
+obstacle is not a missing feature at all: it is that `runmat check` enforces a
+static type discipline MATLAB does not have, and rejects a great deal of
+ordinary Dynare code that executes perfectly well when run. Separating "RunMat
+cannot read this" from "RunMat read it and refused it" is therefore the first
+job of any honest measurement here, and it is why this repo reports two numbers
+rather than one.
 
 ## What's here
 
