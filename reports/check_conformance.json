@@ -1,20 +1,20 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/check",
-  "total": 4,
+  "total": 5,
   "totals": {
-    "xfail": 3,
+    "xfail": 4,
     "pass": 1
   },
-  "elapsed_sec": 3.7,
+  "elapsed_sec": 3.4,
   "results": [
     {
       "id": "brace_index_parameter",
       "checks_clean": false,
       "errors": 1,
       "error": "error[RM-TYPE-BRACE-INDEX]: brace indexing requires a cell-like value",
-      "runs_correctly": true,
+      "runs_correctly": false,
       "run_expected": "20",
-      "run_actual": "20",
+      "run_actual": "",
       "status": "xfail",
       "xfail_reason": "brace indexing a parameter is refused because RunMat cannot prove it is a cell"
     },
@@ -23,20 +23,31 @@
       "checks_clean": false,
       "errors": 1,
       "error": "error[RM-MIR0002]: local may be read before assignment on some control-flow paths",
-      "runs_correctly": true,
+      "runs_correctly": false,
       "run_expected": "1",
-      "run_actual": "1",
+      "run_actual": "",
       "status": "xfail",
       "xfail_reason": "definite assignment rejects a local assigned in one branch and read after"
+    },
+    {
+      "id": "feval_comma_list",
+      "checks_clean": false,
+      "errors": 1,
+      "error": "error[RunMat:MirLoweringError]: feval: function argument cannot be a comma-list expansion",
+      "runs_correctly": false,
+      "run_expected": "7",
+      "run_actual": "",
+      "status": "xfail",
+      "xfail_reason": "feval(fs{i}, ...) is refused at check AND at run time \u2014 a brace index is treated as a comma-list expansion even with a scalar index"
     },
     {
       "id": "global_read",
       "checks_clean": false,
       "errors": 1,
       "error": "error[RM-MIR0001]: local may be read before it is assigned",
-      "runs_correctly": true,
+      "runs_correctly": false,
       "run_expected": "42",
-      "run_actual": "42",
+      "run_actual": "",
       "status": "xfail",
       "xfail_reason": "the definite-assignment analysis does not treat `global` as bringing the name into scope"
     },
@@ -44,9 +55,9 @@
       "id": "plain_function",
       "checks_clean": true,
       "errors": 0,
-      "runs_correctly": true,
+      "runs_correctly": false,
       "run_expected": "5",
-      "run_actual": "5",
+      "run_actual": "",
       "status": "pass"
     }
   ]

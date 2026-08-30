@@ -12,8 +12,9 @@ Each case here is valid MATLAB that *should* check clean. A case may carry
 green today and a fix surfaces as `xpass`.
 
 Where a case is also runnable, it carries `%% runs: <expected stdout>` and the
-harness verifies the code really does work — which is the whole point: the
-checker is rejecting something the runtime handles correctly.
+harness executes it. A case that checks-rejected but runs correctly is the
+interesting one: the checker is refusing something the runtime handles. A case
+that fails both is a genuine runtime gap, and the report says which it is.
 
 Usage:
     tools/check_conformance.py --suite tests/check --out reports/check_conformance
@@ -131,9 +132,11 @@ def main() -> int:
 
     with open(args.out + ".md", "w") as fh:
         fh.write("# Valid MATLAB that `runmat check` rejects\n\n")
-        fh.write("Every case here is legal MATLAB. Cases marked `runs` are also "
-                 "confirmed to execute correctly, so a rejection is the "
-                 "checker's, not the code's.\n\n")
+        fh.write("Every case here is legal MATLAB. `runs correctly: True` "
+                 "means the code executes and returns MATLAB's answer, so the "
+                 "rejection is the checker's and not the code's. "
+                 "`False` means the gap is in the runtime too, not only in "
+                 "`runmat check`.\n\n")
         fh.write(f"- Cases: **{n}**\n")
         fh.write(f"- Check clean: **{totals['pass'] + totals['xpass']}**\n")
         fh.write(f"- Known checker gaps (xfail): **{totals['xfail']}**\n")
