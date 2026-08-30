@@ -27,6 +27,7 @@ does it get*, and *which specific gap is in the way*.
 | `tools/parse_sweep.py` | Runs `runmat check` over every `.m` file in a tree; classifies failures by error id and message signature. |
 | `tools/mfile_shim.py` | Rewrites MATLAB files into a form RunMat can parse (adds terminating `end`s), so the *next* tier of failures becomes visible. |
 | `tools/conformance.py` | Semantic suite runner: does RunMat *behave* like MATLAB on the features Dynare depends on? |
+| `tools/runtime_probe.py` | Takes real functions out of the Dynare tree, calls them with real inputs, and checks the answer against MATLAB's. |
 | `tools/gen_suite.py` | Authors the conformance cases as real `.m` / `.expected` files. |
 | `tests/conformance/` | The suite itself — readable, runnable, editable by hand. |
 | `reports/` | Generated results (JSON + Markdown). |
@@ -82,6 +83,9 @@ python3 tools/parse_sweep.py --root build/shimmed \
 # 4. Semantic conformance
 python3 tools/gen_suite.py tests/conformance
 python3 tools/conformance.py --suite tests/conformance --out reports/conformance
+
+# 5. Run actual Dynare functions
+python3 tools/runtime_probe.py --tree build/shimmed --out reports/runtime_probe
 ```
 
 ## Status
