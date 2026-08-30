@@ -1,7 +1,7 @@
 # RunMat semantic conformance (Dynare-relevant features)
 
-- Cases: **79**
-- Working (pass + xpass): **57** (72.15%)
+- Cases: **84**
+- Working (pass + xpass): **62** (73.81%)
 - Failing: **0**, known gaps (xfail): **22**
 
 ## By category
@@ -41,6 +41,9 @@
 - ⚠️ `misc/eval_simple` eval() does not create the variable in the caller's scope
 - ⚠️ `misc/switch_cell_case` switch on a char value coerces the operand to f64 and errors
 - ⚠️ `misc/switch_on_string` switch on a char value coerces the operand to f64 and errors
+
+### multifile — 5/5
+
 
 ### sparse — 2/4
 

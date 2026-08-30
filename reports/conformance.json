@@ -1,12 +1,12 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/conformance",
-  "total": 79,
+  "total": 84,
   "totals": {
-    "pass": 57,
+    "pass": 62,
     "xfail": 22
   },
-  "working": 57,
-  "conformance_pct": 72.15,
+  "working": 62,
+  "conformance_pct": 73.81,
   "by_category": {
     "cells": {
       "pass": 5,
@@ -34,6 +34,9 @@
     "misc": {
       "pass": 5,
       "xfail": 3
+    },
+    "multifile": {
+      "pass": 5
     },
     "sparse": {
       "pass": 2,
@@ -724,7 +727,52 @@
       "expected": "8",
       "actual": "8",
       "returncode": 0
+    },
+    {
+      "id": "multifile/classdef_handle",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "7",
+      "actual": "7",
+      "returncode": 0,
+      "multifile": true
+    },
+    {
+      "id": "multifile/classdef_in_at_dir",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "3",
+      "actual": "3",
+      "returncode": 0,
+      "multifile": true
+    },
+    {
+      "id": "multifile/classdef_value",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "1 9",
+      "actual": "1 9",
+      "returncode": 0,
+      "multifile": true
+    },
+    {
+      "id": "multifile/cross_file_call",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "42",
+      "actual": "42",
+      "returncode": 0,
+      "multifile": true
+    },
+    {
+      "id": "multifile/package_call",
+      "category": "multifile",
+      "status": "pass",
+      "expected": "5\n10",
+      "actual": "5\n10",
+      "returncode": 0,
+      "multifile": true
     }
   ],
-  "elapsed_sec": 26.6
+  "elapsed_sec": 29.2
 }

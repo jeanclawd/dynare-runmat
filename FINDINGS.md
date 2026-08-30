@@ -271,6 +271,32 @@ RunMat's shape differs, so the standard `t{i}{j}` access fails.
 
 ---
 
+## Structural features: all working
+
+Worth stating plainly, because these were the most likely places for a
+reimplementation to fall over, and none of them did:
+
+| Feature | Status |
+| --- | --- |
+| `+package` namespaces (`mypkg.fn(x)`) | works |
+| `import pkg.fn` | works |
+| `classdef` with value semantics (copy on assign) | works |
+| `classdef < handle` with reference semantics | works |
+| `classdef` inside an `@dir` — Dynare's `@dprior` shape | works |
+| Cross-file function resolution | works |
+
+Dynare has 11 `classdef` files and a large number of `+package` directories, so
+this removes a whole category of risk. `@dprior` itself currently fails
+`runmat check`, but on the definite-assignment rule above, not on anything to
+do with being a class.
+
+One gap, not a blocker: the *old* style of class directory — `@Box/Box.m`
+containing a plain function that calls `class(o, 'Box')` — is not resolved
+(`Undefined function: Box`). Dynare does not use that style anywhere, so it is
+recorded rather than prioritized.
+
+---
+
 ## Confirmed working
 
 Worth recording, because it is a lot, and it means the gaps above are the

@@ -9,6 +9,12 @@ Each test is a `.m` file under tests/conformance/<category>/ with a sibling
 `.expected` holding the exact stdout MATLAB produces. A test passes only if
 RunMat's stdout matches after whitespace normalization.
 
+Some features cannot be expressed in one file — `classdef` needs its own file,
+a `+package` needs its own directory, and function resolution across files is
+itself worth testing. So a case may instead be a **directory** containing
+`main.m` plus whatever support files it needs, and an `expected` file beside
+them. The directory is copied to a temp location and `main.m` is run there.
+
 Tests may be marked with a leading `%% xfail: <reason>` comment — a known gap,
 recorded so a regression (or a fix) is visible rather than silently tolerated.
 
@@ -20,8 +26,10 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from collections import Counter, defaultdict
 
@@ -50,6 +58,37 @@ def run_case(runmat: str, path: str, timeout: int):
         return "", "TIMEOUT", -9
 
 
+def run_dir_case(runmat: str, case_dir: str, timeout: int):
+    """Copy a multi-file case to a temp dir and run its main.m there.
+
+    Running from a copy keeps RunMat's working-directory function resolution
+    honest and stops one case from seeing another's files.
+    """
+    with tempfile.TemporaryDirectory() as td:
+        dst = os.path.join(td, "case")
+        shutil.copytree(case_dir, dst)
+        exp = os.path.join(dst, "expected")
+        if os.path.exists(exp):
+            os.remove(exp)
+        try:
+            proc = subprocess.run(
+                [runmat, "run", "main.m"],
+                cwd=dst, capture_output=True, text=True, timeout=timeout,
+            )
+            return proc.stdout, proc.stderr, proc.returncode
+        except subprocess.TimeoutExpired:
+            return "", "TIMEOUT", -9
+
+
+def collect_dir_cases(suite: str):
+    """Directories holding a main.m and an expected file are single cases."""
+    cases = []
+    for dirpath, _d, filenames in os.walk(suite):
+        if "main.m" in filenames and "expected" in filenames:
+            cases.append(dirpath)
+    return sorted(cases)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--suite", required=True)
@@ -60,14 +99,21 @@ def main() -> int:
     args = ap.parse_args()
 
     suite = os.path.abspath(args.suite)
+    dir_cases = collect_dir_cases(suite)
+    # Files belonging to a multi-file case must not also run as single files.
+    owned = {d for d in dir_cases}
+
     cases = []
     for dirpath, _d, filenames in os.walk(suite):
+        if any(dirpath == d or dirpath.startswith(d + os.sep) for d in owned):
+            continue
         for fn in sorted(filenames):
             if fn.endswith(".m"):
                 cases.append(os.path.join(dirpath, fn))
     cases.sort()
     if args.filter:
         cases = [c for c in cases if args.filter in c]
+        dir_cases = [c for c in dir_cases if args.filter in c]
 
     results = []
     by_cat = defaultdict(Counter)
@@ -109,6 +155,38 @@ def main() -> int:
             "actual": actual,
             "returncode": rc,
         }
+        if not matched:
+            entry["stderr"] = clean(err)[:600]
+        if xfail_reason:
+            entry["xfail_reason"] = xfail_reason
+        results.append(entry)
+        by_cat[category][status] += 1
+
+    for case_dir in dir_cases:
+        rel = os.path.relpath(case_dir, suite)
+        category = rel.split(os.sep)[0] if os.sep in rel else "misc"
+        test_id = rel.replace(os.sep, "/")
+
+        with open(os.path.join(case_dir, "main.m"), "r", errors="replace") as fh:
+            src = fh.read()
+        xf = XFAIL.search(src)
+        xfail_reason = xf.group(1).strip() if xf else None
+
+        with open(os.path.join(case_dir, "expected"), "r", errors="replace") as fh:
+            expected = clean(fh.read())
+
+        out, err, rc = run_dir_case(args.runmat, case_dir, args.timeout)
+        actual = clean(out)
+        matched = actual == expected
+
+        if matched:
+            status = "xpass" if xfail_reason else "pass"
+        else:
+            status = "xfail" if xfail_reason else "fail"
+
+        entry = {"id": test_id, "category": category, "status": status,
+                 "expected": expected, "actual": actual, "returncode": rc,
+                 "multifile": True}
         if not matched:
             entry["stderr"] = clean(err)[:600]
         if xfail_reason:
