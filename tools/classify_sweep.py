@@ -37,9 +37,11 @@ STATIC_ANALYSIS = re.compile(
 )
 SYNTAX = re.compile(r"ParseError|expected|unexpected token", re.I)
 
-TIER_ORDER = ["syntax", "static_analysis", "lowering", "runtime_semantics", "other"]
+TIER_ORDER = ["crash", "syntax", "static_analysis", "lowering",
+              "runtime_semantics", "other"]
 
 TIER_LABEL = {
+    "crash": "Crash — RunMat aborted instead of diagnosing",
     "syntax": "Syntax — RunMat cannot read the file",
     "static_analysis": "Static analysis — parsed fine, refused by a rule MATLAB lacks",
     "lowering": "Lowering/MIR — parsed, failed to compile",
@@ -51,6 +53,8 @@ TIER_LABEL = {
 def tier_of(entry: dict) -> str:
     bucket = entry.get("bucket", "") or ""
     msg = entry.get("message", "") or ""
+    if entry.get("crashed") or bucket == "Crash":
+        return "crash"
     if STATIC_ANALYSIS.search(msg):
         return "static_analysis"
     if "ParseError" in bucket or SYNTAX.search(msg):

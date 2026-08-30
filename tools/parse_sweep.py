@@ -24,6 +24,10 @@ NOISE = re.compile(r"wgpu|libEGL|DRI2|No config found|No windowing system")
 # Error-id -> short human label. Anything unmatched is bucketed by its raw id.
 ERROR_ID = re.compile(r"error\[([A-Za-z0-9_:]+)\]")
 SUMMARY = re.compile(r"checked .*?: (\d+) error\(s\), (\d+) warning\(s\)")
+# RunMat can abort rather than diagnose. The process dies before printing a
+# summary, so without this these files land in an empty "Unknown" bucket and
+# look like a harness problem rather than a crash.
+CRASH = re.compile(r"overflowed its stack|fatal runtime error|panicked at")
 
 
 def classify(stdout: str, stderr: str) -> tuple[str, str]:
@@ -31,6 +35,9 @@ def classify(stdout: str, stderr: str) -> tuple[str, str]:
     text = "\n".join(
         ln for ln in (stdout + "\n" + stderr).splitlines() if not NOISE.search(ln)
     )
+    if CRASH.search(text):
+        first = next((ln.strip() for ln in text.splitlines() if CRASH.search(ln)), "")
+        return "Crash", first[:120]
     ids = ERROR_ID.findall(text)
     bucket = ids[0] if ids else "Unknown"
 
@@ -90,12 +97,15 @@ def main() -> int:
             out, err, rc = "", "TIMEOUT", -9
 
         combined = out + "\n" + err
+        crashed = CRASH.search(combined) is not None or rc < 0
         m = SUMMARY.search(combined)
         n_err = int(m.group(1)) if m else (0 if rc == 0 and "error" not in combined else 1)
-        ok = n_err == 0 and rc == 0
+        ok = n_err == 0 and rc == 0 and not crashed
 
         rel = os.path.relpath(path, root)
         entry = {"file": rel, "ok": ok, "errors": n_err}
+        if crashed:
+            entry["crashed"] = True
         if not ok:
             bucket, msg = classify(out, err)
             sig = normalize(msg)
