@@ -1,12 +1,12 @@
 {
   "suite": "/root/Projects/dynare-runmat/tests/conformance",
-  "total": 102,
+  "total": 109,
   "totals": {
-    "pass": 75,
-    "xfail": 27
+    "pass": 78,
+    "xfail": 31
   },
-  "working": 75,
-  "conformance_pct": 73.53,
+  "working": 78,
+  "conformance_pct": 71.56,
   "by_category": {
     "cells": {
       "pass": 5,
@@ -41,6 +41,10 @@
     "multifile": {
       "pass": 7,
       "xfail": 1
+    },
+    "platform": {
+      "xfail": 4,
+      "pass": 3
     },
     "printf": {
       "xfail": 4,
@@ -611,6 +615,70 @@
       "xfail_reason": "switch on a char value coerces the operand to f64 and errors"
     },
     {
+      "id": "platform/computer_returns_text",
+      "category": "platform",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: undefined variable 'computer'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/computer_returns_text.m:2:24\n2 | fprintf('%d\\n', ischar(computer));\n| ^^^^^^^^",
+      "xfail_reason": "computer() is not implemented"
+    },
+    {
+      "id": "platform/exactly_one_platform_family",
+      "category": "platform",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: undefined variable 'ispc'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/exactly_one_platform_family.m:2:18\n2 | fprintf('%d\\n', (ispc + isunix) >= 1);\n| ^^^^",
+      "xfail_reason": "ispc()/isunix() are not implemented"
+    },
+    {
+      "id": "platform/filesep_is_one_char",
+      "category": "platform",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: undefined variable 'filesep'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/filesep_is_one_char.m:2:5\n2 | s = filesep;\n| ^^^^^^^",
+      "xfail_reason": "filesep() is not implemented \u2014 used in 118 Dynare files"
+    },
+    {
+      "id": "platform/fullfile_and_fileparts",
+      "category": "platform",
+      "status": "pass",
+      "expected": "c.txt",
+      "actual": "c.txt",
+      "returncode": 0
+    },
+    {
+      "id": "platform/getenv_missing_is_empty",
+      "category": "platform",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
+      "id": "platform/ismac_is_logical",
+      "category": "platform",
+      "status": "xfail",
+      "expected": "1",
+      "actual": "",
+      "returncode": 1,
+      "stderr": "error: undefined variable 'ismac'\nid: RunMat:UndefinedVariable\n--> tests/conformance/platform/ismac_is_logical.m:2:33\n2 | fprintf('%d\\n', ismember(double(ismac), [0 1]));\n| ^^^^^",
+      "xfail_reason": "ismac() is not implemented"
+    },
+    {
+      "id": "platform/pathsep_is_one_char",
+      "category": "platform",
+      "status": "pass",
+      "expected": "1",
+      "actual": "1",
+      "returncode": 0
+    },
+    {
       "id": "printf/e_exponent_padding",
       "category": "printf",
       "status": "xfail",
@@ -939,5 +1007,5 @@
       "multifile": true
     }
   ],
-  "elapsed_sec": 35.3
+  "elapsed_sec": 48.6
 }

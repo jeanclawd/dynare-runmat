@@ -1,8 +1,8 @@
 # RunMat semantic conformance (Dynare-relevant features)
 
-- Cases: **102**
-- Working (pass + xpass): **75** (73.53%)
-- Failing: **0**, known gaps (xfail): **27**
+- Cases: **109**
+- Working (pass + xpass): **78** (71.56%)
+- Failing: **0**, known gaps (xfail): **31**
 
 ## By category
 
@@ -48,6 +48,13 @@
 ### multifile — 7/8
 
 - ⚠️ `multifile/exist_codes` exist() returns 3 (MEX-file) for a plain file where MATLAB returns 2
+
+### platform — 3/7
+
+- ⚠️ `platform/computer_returns_text` computer() is not implemented
+- ⚠️ `platform/exactly_one_platform_family` ispc()/isunix() are not implemented
+- ⚠️ `platform/filesep_is_one_char` filesep() is not implemented — used in 118 Dynare files
+- ⚠️ `platform/ismac_is_logical` ismac() is not implemented
 
 ### printf — 3/7
 

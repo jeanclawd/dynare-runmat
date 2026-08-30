@@ -67,13 +67,13 @@ is not callable, though `nan(n,m)` is.
 
 ### Semantic conformance
 
-102 hand-written cases across structs, cells, functions, strings, constructors,
-complex arithmetic, printf formats, dense and sparse linear algebra, error
-handling, indexing, control flow, file I/O, RNG reproducibility, and multi-file
-structure. Each case pins the exact output MATLAB produces; numeric
+109 hand-written cases across structs, cells, functions, strings, constructors,
+complex arithmetic, printf formats, platform builtins, dense and sparse linear
+algebra, error handling, indexing, control flow, file I/O, RNG reproducibility,
+and multi-file structure. Each case pins the exact output MATLAB produces; numeric
 cases assert a mathematical identity rather than a text format.
 
-**75 pass, 27 are tracked known gaps, 0 unexpected failures.**
+**78 pass, 31 are tracked known gaps, 0 unexpected failures.**
 
 Most cases are one file. Features that cannot be — `classdef`, `+package`
 namespaces, cross-file resolution — are directories holding a `main.m` plus
