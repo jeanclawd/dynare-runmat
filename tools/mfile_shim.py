@@ -85,7 +85,12 @@ def strip_code(line: str, in_block_comment: bool):
             continue
 
         if ch == "'":
-            prev = "".join(out).rstrip()
+            # The preceding character decides, and whitespace is significant:
+            # `A'` is a transpose, but `[name1 ' text']` is a string, because
+            # inside brackets whitespace separates elements. Stripping the
+            # space here would read the quote as a transpose and desync the
+            # bracket depth for the rest of the file.
+            prev = "".join(out)
             if prev and TRANSPOSE_AFTER.search(prev):
                 out.append("'")  # transpose operator
                 i += 1
