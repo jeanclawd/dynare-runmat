@@ -1,0 +1,53 @@
+{
+  "suite": "/root/Projects/dynare-runmat/tests/check",
+  "total": 4,
+  "totals": {
+    "xfail": 3,
+    "pass": 1
+  },
+  "elapsed_sec": 3.7,
+  "results": [
+    {
+      "id": "brace_index_parameter",
+      "checks_clean": false,
+      "errors": 1,
+      "error": "error[RM-TYPE-BRACE-INDEX]: brace indexing requires a cell-like value",
+      "runs_correctly": true,
+      "run_expected": "20",
+      "run_actual": "20",
+      "status": "xfail",
+      "xfail_reason": "brace indexing a parameter is refused because RunMat cannot prove it is a cell"
+    },
+    {
+      "id": "branch_assigned_local",
+      "checks_clean": false,
+      "errors": 1,
+      "error": "error[RM-MIR0002]: local may be read before assignment on some control-flow paths",
+      "runs_correctly": true,
+      "run_expected": "1",
+      "run_actual": "1",
+      "status": "xfail",
+      "xfail_reason": "definite assignment rejects a local assigned in one branch and read after"
+    },
+    {
+      "id": "global_read",
+      "checks_clean": false,
+      "errors": 1,
+      "error": "error[RM-MIR0001]: local may be read before it is assigned",
+      "runs_correctly": true,
+      "run_expected": "42",
+      "run_actual": "42",
+      "status": "xfail",
+      "xfail_reason": "the definite-assignment analysis does not treat `global` as bringing the name into scope"
+    },
+    {
+      "id": "plain_function",
+      "checks_clean": true,
+      "errors": 0,
+      "runs_correctly": true,
+      "run_expected": "5",
+      "run_actual": "5",
+      "status": "pass"
+    }
+  ]
+}

@@ -28,6 +28,9 @@ does it get*, and *which specific gap is in the way*.
 | `tools/mfile_shim.py` | Rewrites MATLAB files into a form RunMat can parse (adds terminating `end`s), so the *next* tier of failures becomes visible. |
 | `tools/conformance.py` | Semantic suite runner: does RunMat *behave* like MATLAB on the features Dynare depends on? |
 | `tools/runtime_probe.py` | Takes real functions out of the Dynare tree, calls them with real inputs, and checks the answer against MATLAB's. |
+| `tools/check_conformance.py` | Valid MATLAB that `runmat check` rejects — each case also proven to run correctly, so the rejection is the checker's. |
+| `tools/classify_sweep.py` | Splits sweep failures into syntax vs checker rejections, and estimates what each blocker is worth. |
+| `tools/subsystem_report.py` | Groups a sweep by Dynare subsystem, to show which parts are closest to running. |
 | `tools/gen_suite.py` | Authors the conformance cases as real `.m` / `.expected` files. |
 | `tests/conformance/` | The suite itself — readable, runnable, editable by hand. |
 | `reports/` | Generated results (JSON + Markdown). |
@@ -58,6 +61,21 @@ understand `global` and so rejects every file that reads `M_`, `oo_`, or
 `options_`. Code it refuses frequently runs correctly.
 `tools/classify_sweep.py` splits the tiers; see
 `reports/parse_sweep_shimmed_tiered.md`.
+
+### What the checker rejects that MATLAB accepts
+
+The single largest cause of sweep failures is not RunMat failing to read
+Dynare — it is `runmat check` enforcing a static discipline the language does
+not have. `tests/check/` pins three cases, each **confirmed to execute
+correctly**:
+
+| Case | Rejected with | Runs? |
+| --- | --- | --- |
+| local assigned in one branch, read after | `RM-MIR0002` | ✅ returns 1 |
+| `global M_` then reading `M_.foo` | `RM-MIR0001` | ✅ returns 42 |
+| brace-indexing a parameter, `c{i}` | `RM-TYPE-BRACE-INDEX` | ✅ returns 20 |
+
+Those three rules account for roughly 450 of the 762 shimmed-tree failures.
 
 ### Running real Dynare functions
 

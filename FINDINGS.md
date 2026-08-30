@@ -98,6 +98,33 @@ largest single failure bucket in the sweep.
 By contrast, calling a function RunMat cannot locate is only a *warning*
 (`RM-RES0001`), which is the right severity — that one is fine.
 
+### And it rejects brace indexing of a parameter
+
+A third instance of the same pattern, and the next-largest bucket after the two
+above — **88 files**:
+
+```matlab
+function y = pick(c, i)
+y = c{i};
+end
+```
+
+```
+error[RM-TYPE-BRACE-INDEX]: brace indexing requires a cell-like value
+ --> bi.m:2:1
+  = static value contract is not satisfied here
+```
+
+`pick({10, 20}, 2)` runs and returns `20`. RunMat cannot prove a parameter is a
+cell, so it refuses `{}` on it ahead of time. Passing a cell array into a
+function and indexing it is entirely ordinary MATLAB — in Dynare it is how
+`var_list`, `endo_names` and every other name list is handled.
+
+Taken together, definite assignment, `global`, and this parameter contract are
+one story: **`runmat check` enforces a static type discipline the language does
+not have.** They are the three largest failure buckets in the sweep, and in
+every case the code runs correctly.
+
 Two consequences:
 
 1. It is a real compatibility gap. A tool that refuses to load valid MATLAB is
