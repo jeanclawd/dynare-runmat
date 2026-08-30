@@ -192,7 +192,23 @@ alias, not a semantic change.
 
 ## P2 — missing builtins Dynare depends on
 
-### 6. The QZ family is absent — this blocks model solution outright
+### 6. Basic platform builtins are missing — `filesep` is in 118 Dynare files
+
+```matlab
+exist('filesep')   % 0
+exist('ispc')      % 0
+exist('isunix')    % 0
+exist('ismac')     % 0
+exist('computer')  % 0
+```
+
+Present and working: `pathsep`, `fullfile`, `fileparts`, `tempdir`, `getenv`.
+
+Dynare usage: `filesep` **118 files**, `ispc` 21, `isunix` 7, `ismac` 7,
+`computer` 5. `filesep` is the most-used missing builtin found so far and is a
+one-line implementation. It is the top blocker for the `ms-sbvar` subsystem.
+
+### 7. The QZ family is absent — this blocks model solution outright
 
 ```matlab
 exist('qz')       % 0
@@ -214,7 +230,7 @@ state.
 Present and working: `eig`, `svd`, `chol`, `lu`, `kron`, `pinv`, `null`, `cond`,
 `norm`, `rank`, `det`, `inv`, and dense `\`.
 
-### 7. Sparse matrices exist but core operations reject them
+### 8. Sparse matrices exist but core operations reject them
 
 ```matlab
 S = sparse(eye(3));
@@ -225,14 +241,14 @@ S \ [1;2]  % error: mldivide: unsupported input type SparseTensor
 Construction, `full`, `nnz`, `issparse`, and `speye` all work — the type is
 there, the operations are not. Dynare represents Jacobians sparsely throughout.
 
-### 8. `ismember` rejects char and cellstr
+### 9. `ismember` rejects char and cellstr
 
 ```matlab
 ismember('bb', {'aa', 'bb'})
 % error: ismember: unsupported input type CharArray; expected numeric or logical
 ```
 
-### 9. `strjoin` cannot consume a cell array of strings
+### 10. `strjoin` cannot consume a cell array of strings
 
 ```matlab
 strjoin(strsplit('a,b,c', ','), '-')
@@ -245,7 +261,7 @@ strjoin(strsplit('a,b,c', ','), '-')
 
 ## P3 — output and detail differences
 
-### 10. `printf` numeric formats are wrong in several ways
+### 11. `printf` numeric formats are wrong in several ways
 
 | Format | Input | MATLAB | RunMat |
 | --- | --- | --- | --- |
@@ -267,7 +283,7 @@ a non-integer. RunMat prints `fprintf('%d', 2.5)` as `2`; MATLAB is documented
 to switch to exponential notation for non-integer values given an integer
 conversion. Flagged rather than asserted.
 
-### 11. `exist` returns the wrong code for files
+### 12. `exist` returns the wrong code for files
 
 ```matlab
 exist('data.txt', 'file')   % MATLAB 2, RunMat 3
@@ -282,7 +298,7 @@ ordinary files, so `exist(f) == 2` guards fail. Dynare has 5 such comparisons.
 The directory, variable, and not-found codes are all right — only the file case
 is off.
 
-### 12. `regexp(..., 'tokens')` returns the wrong nesting
+### 13. `regexp(..., 'tokens')` returns the wrong nesting
 
 ```matlab
 t = regexp('x=12', '(\w+)=(\d+)', 'tokens');
@@ -363,23 +379,25 @@ Ordered by payoff per unit of work, not by severity alone.
 
 1. **Alias `NaN(...)` / `Inf(...)` to `nan(...)` / `inf(...)`.** Smallest change
    on the list; unblocks 188 files and every failing runtime probe.
-2. **Teach the definite-assignment checker about `global`.** One rule in the
+2. **Implement `filesep`** (and `ispc`/`isunix`/`ismac`/`computer`). `filesep`
+   is a one-line function used in 118 Dynare files.
+3. **Teach the definite-assignment checker about `global`.** One rule in the
    analysis; it is the largest single failure bucket and affects 123 files.
-3. **Parser: accept unterminated functions.** One rule; unblocks ~80% of the
+4. **Parser: accept unterminated functions.** One rule; unblocks ~80% of the
    files and makes every subsequent measurement meaningful.
-4. **`switch` on strings.** Small, and it is everywhere in real MATLAB.
-5. **Soften definite-assignment generally** — MATLAB has no such rule, so
+5. **`switch` on strings.** Small, and it is everywhere in real MATLAB.
+6. **Soften definite-assignment generally** — MATLAB has no such rule, so
    rejecting the program outright is stricter than the language allows. A
    warning would keep the diagnostic value without blocking valid code.
-6. **Struct auto-vivification.** Larger semantic change, but Dynare's data model
+7. **Struct auto-vivification.** Larger semantic change, but Dynare's data model
    depends on it.
-7. **QZ / `ordqz` / `schur`.** The gating item for solving anything. LAPACK
+8. **QZ / `ordqz` / `schur`.** The gating item for solving anything. LAPACK
    already provides `dgges`/`dtgsen`; the work is binding and reordering, not
    numerics.
-8. **Sparse `mtimes` / `mldivide`.**
-9. Everything else in P2/P3 — individually small, mechanical.
+9. **Sparse `mtimes` / `mldivide`.**
+10. Everything else in P2/P3 — individually small, mechanical.
 
-Items 1-4 are, on the evidence here, a few days of work that would move Dynare
+Items 1-5 are, on the evidence here, a few days of work that would move Dynare
 from "essentially unreadable" to "large parts load and run". Item 7 is the one
 that decides whether a model can actually be solved, and it is real numerical
 work rather than a compatibility patch.

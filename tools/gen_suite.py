@@ -267,6 +267,36 @@ TESTS = [
      "[r, c] = find([0 1; 1 0]);\nfprintf('%d %d\\n', numel(r), sum(c));",
      "2 3", None),
 
+    # ------------------------------------------------------------- platform
+    # Written to be platform-agnostic: they assert the shape of the answer, not
+    # a Linux-specific value, so the suite is portable.
+    ("platform", "filesep_is_one_char",
+     "s = filesep;\nfprintf('%d\\n', ischar(s) && numel(s) == 1);",
+     "1",
+     "filesep() is not implemented — used in 118 Dynare files"),
+    ("platform", "pathsep_is_one_char",
+     "s = pathsep;\nfprintf('%d\\n', ischar(s) && numel(s) == 1);",
+     "1", None),
+    ("platform", "exactly_one_platform_family",
+     "fprintf('%d\\n', (ispc + isunix) >= 1);",
+     "1",
+     "ispc()/isunix() are not implemented"),
+    ("platform", "ismac_is_logical",
+     "fprintf('%d\\n', ismember(double(ismac), [0 1]));",
+     "1",
+     "ismac() is not implemented"),
+    ("platform", "computer_returns_text",
+     "fprintf('%d\\n', ischar(computer));",
+     "1",
+     "computer() is not implemented"),
+    ("platform", "fullfile_and_fileparts",
+     "p = fullfile('a', 'b', 'c.txt');\n[~, n, e] = fileparts(p);\n"
+     "fprintf('%s%s\\n', n, e);",
+     "c.txt", None),
+    ("platform", "getenv_missing_is_empty",
+     "fprintf('%d\\n', isempty(getenv('RUNMAT_DEFINITELY_NOT_SET_XYZ')));",
+     "1", None),
+
     # -------------------------------------------------------------- complex
     # DSGE eigenvalues are generally complex, so this whole area is load-bearing
     # for any Blanchard-Kahn style stability check.
