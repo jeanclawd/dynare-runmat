@@ -7,15 +7,15 @@
   "buckets": [
     [
       "Unknown",
-      488
+      489
     ],
     [
       "RunMat:UndefinedVariable",
-      186
+      188
     ],
     [
       "RunMat:ParseError",
-      61
+      58
     ],
     [
       "RunMat:AggregateShapeMismatch",
@@ -41,15 +41,15 @@
   "signatures": [
     [
       "Unknown | local may be read before it is assigned",
-      212
+      213
     ],
     [
       "RunMat:UndefinedVariable | undefined variable 'X'",
-      186
+      188
     ],
     [
       "Unknown | local may be read before assignment on some control-flow paths",
-      143
+      144
     ],
     [
       "Unknown | brace indexing requires a cell-like value",
@@ -57,11 +57,11 @@
     ],
     [
       "Unknown | ",
-      35
+      34
     ],
     [
       "RunMat:ParseError | expected 'X'",
-      20
+      17
     ],
     [
       "RunMat:ParseError | expected identifier",
@@ -190,7 +190,7 @@
     {
       "file": "+backward_model/initialize.m",
       "ok": false,
-      "errors": 14,
+      "errors": 11,
       "bucket": "Unknown",
       "message": "local may be read before assignment on some control-flow paths"
     },
@@ -1340,9 +1340,9 @@
     {
       "file": "+pruned_SS/pruned_state_space_system.m",
       "ok": false,
-      "errors": 1,
+      "errors": 587,
       "bucket": "Unknown",
-      "message": ""
+      "message": "local may be read before assignment on some control-flow paths"
     },
     {
       "file": "+pruned_SS/quadruplication.m",
@@ -2394,9 +2394,9 @@
     {
       "file": "ep/cubature_with_gaussian_weight.m",
       "ok": false,
-      "errors": 1,
-      "bucket": "RunMat:ParseError",
-      "message": "expected 'end'"
+      "errors": 2,
+      "bucket": "Unknown",
+      "message": "local may be read before it is assigned"
     },
     {
       "file": "ep/ep_accuracy_check.m",
@@ -2687,8 +2687,8 @@
       "file": "estimation/correlation_mc_analysis.m",
       "ok": false,
       "errors": 1,
-      "bucket": "RunMat:ParseError",
-      "message": "expected 'end'"
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'filesep'"
     },
     {
       "file": "estimation/covariance_mc_analysis.m",
@@ -5429,8 +5429,8 @@
       "file": "parallel/masterParallel.m",
       "ok": false,
       "errors": 1,
-      "bucket": "RunMat:ParseError",
-      "message": "expected 'end'"
+      "bucket": "RunMat:UndefinedVariable",
+      "message": "undefined variable 'isoctave'"
     },
     {
       "file": "parallel/setup_parallel_execution.m",
@@ -6978,5 +6978,5 @@
       "errors": 0
     }
   ],
-  "elapsed_sec": 410.9
+  "elapsed_sec": 421.2
 }

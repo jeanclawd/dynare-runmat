@@ -39,22 +39,40 @@ See `reports/` for the full breakdown and `FINDINGS.md` for the prioritized list
 
 ### Parse sweep — can RunMat read Dynare at all?
 
-| Tree | Files | Parsed clean | Rate |
+| Tree | Files | Parses (no syntax error) | Fully clean under `runmat check` |
 | --- | --- | --- | --- |
-| Dynare `matlab/` as-is | 1056 | 63 | **5.97%** |
-| After `mfile_shim.py` | 1056 | see `reports/parse_sweep_shimmed.md` | |
+| Dynare `matlab/` as-is | 1056 | 221 (20.9%) | 63 (**5.97%**) |
+| After `mfile_shim.py` | 1056 | 998 (**94.5%**) | 294 (27.8%) |
 
-The as-is number is dominated by a single cause: RunMat requires every
-`function` to be closed by a terminating `end`, and classic MATLAB function
-files omit it. 844 of Dynare's 1056 files are written that way. That one rule
-masks every other incompatibility, which is why the shim exists.
+Two columns, because `runmat check` conflates two very different things.
+
+The as-is rate is dominated by a single cause: RunMat requires every `function`
+to be closed by a terminating `end`, and classic MATLAB function files omit it.
+824 of Dynare's 1056 files are written that way. That one rule masks every other
+incompatibility, which is why the shim exists — and with it gone, **94.5% of
+Dynare parses**. Only 58 files have a genuine syntax problem left.
+
+The gap between 94.5% and 27.8% is almost entirely RunMat's checker enforcing
+rules MATLAB does not have — chiefly definite assignment, which does not
+understand `global` and so rejects every file that reads `M_`, `oo_`, or
+`options_`. Code it refuses frequently runs correctly.
+`tools/classify_sweep.py` splits the tiers; see
+`reports/parse_sweep_shimmed_tiered.md`.
+
+### Running real Dynare functions
+
+14 functions lifted out of the shimmed tree and called with real inputs: **11
+return MATLAB's exact answer**. All three failures share one cause — `NaN(n,m)`
+is not callable, though `nan(n,m)` is.
 
 ### Semantic conformance
 
-74 hand-written cases across structs, cells, functions, strings, dense and
-sparse linear algebra, error handling, indexing, and control flow. Each case
-pins the exact output MATLAB produces; numeric cases assert a mathematical
-identity rather than a text format.
+79 hand-written cases across structs, cells, functions, strings, constructors,
+dense and sparse linear algebra, error handling, indexing, and control flow.
+Each case pins the exact output MATLAB produces; numeric cases assert a
+mathematical identity rather than a text format.
+
+**57 pass, 22 are tracked known gaps, 0 unexpected failures.**
 
 Known gaps are marked `xfail` **with a reason**, so the suite stays green
 against today's RunMat and any *new* breakage — or any *fix* (reported as
@@ -90,10 +108,18 @@ python3 tools/runtime_probe.py --tree build/shimmed --out reports/runtime_probe
 
 ## Status
 
-Early. The parse wall is characterized and removable; the semantic gaps are
-enumerated and tracked. The blocking item for actually *solving a model* is the
-missing QZ/`ordqz` family — without generalized Schur with eigenvalue
-reordering there is no Blanchard-Kahn split and no first-order policy function.
+The parse wall is characterized and removable — 94.5% of Dynare parses once the
+terminating-`end` rule is out of the way. Real Dynare functions run and return
+correct answers. The semantic gaps are enumerated, reproduced individually, and
+tracked as tests.
+
+Nothing here solves a model yet, and the reason is specific: the QZ family
+(`qz`, `ordqz`, `schur`) does not exist in RunMat. Without a generalized Schur
+decomposition with eigenvalue reordering there is no Blanchard-Kahn split and
+therefore no first-order policy function. Everything else on the list is a
+compatibility patch; that one is numerical work.
+
+See `FINDINGS.md` for the prioritized list, each item with a standalone repro.
 
 ## License
 

@@ -60,6 +60,44 @@ an error only if that path is actually taken; RunMat rejects the function ahead
 of time. This pattern — assign in one branch, read after — is ordinary MATLAB
 and common in Dynare.
 
+### The same analysis does not understand `global`
+
+Worse, and more specific:
+
+```matlab
+function y = f()
+global M_
+y = M_.foo;
+end
+```
+
+```
+error[RM-MIR0001]: local may be read before it is assigned
+ --> uv2.m:3:1
+  = help: assign this local before reading it
+```
+
+The `global M_` declaration is not treated as bringing `M_` into scope, so
+every read of a global looks like a read of an unassigned local. At runtime
+globals work correctly — this exact pattern prints `42`:
+
+```matlab
+global M_
+M_ = struct('foo', 42);
+fprintf('%d\n', readit());
+function y = readit()
+global M_
+y = M_.foo;
+end
+```
+
+**123 Dynare files declare globals**, and `M_`, `oo_`, and `options_` are the
+toolbox's central data structures. This one checker rule accounts for the
+largest single failure bucket in the sweep.
+
+By contrast, calling a function RunMat cannot locate is only a *warning*
+(`RM-RES0001`), which is the right severity — that one is fine.
+
 Two consequences:
 
 1. It is a real compatibility gap. A tool that refuses to load valid MATLAB is
@@ -253,13 +291,27 @@ indexing, `end` in ranges, deletion by `[]`, implicit expansion, `reshape`,
 
 ## Suggested order of attack
 
-1. **Parser: accept unterminated functions.** One rule; unblocks ~80% of the
+Ordered by payoff per unit of work, not by severity alone.
+
+1. **Alias `NaN(...)` / `Inf(...)` to `nan(...)` / `inf(...)`.** Smallest change
+   on the list; unblocks 188 files and every failing runtime probe.
+2. **Teach the definite-assignment checker about `global`.** One rule in the
+   analysis; it is the largest single failure bucket and affects 123 files.
+3. **Parser: accept unterminated functions.** One rule; unblocks ~80% of the
    files and makes every subsequent measurement meaningful.
-2. **`switch` on strings.** Small, and it is everywhere in real MATLAB.
-3. **Struct auto-vivification.** Larger semantic change, but Dynare's data model
+4. **`switch` on strings.** Small, and it is everywhere in real MATLAB.
+5. **Soften definite-assignment generally** — MATLAB has no such rule, so
+   rejecting the program outright is stricter than the language allows. A
+   warning would keep the diagnostic value without blocking valid code.
+6. **Struct auto-vivification.** Larger semantic change, but Dynare's data model
    depends on it.
-4. **QZ / `ordqz` / `schur`.** The gating item for solving anything. LAPACK
+7. **QZ / `ordqz` / `schur`.** The gating item for solving anything. LAPACK
    already provides `dgges`/`dtgsen`; the work is binding and reordering, not
    numerics.
-5. **Sparse `mtimes` / `mldivide`.**
-6. Everything in P2/P3 — individually small, mechanical.
+8. **Sparse `mtimes` / `mldivide`.**
+9. Everything else in P2/P3 — individually small, mechanical.
+
+Items 1-4 are, on the evidence here, a few days of work that would move Dynare
+from "essentially unreadable" to "large parts load and run". Item 7 is the one
+that decides whether a model can actually be solved, and it is real numerical
+work rather than a compatibility patch.

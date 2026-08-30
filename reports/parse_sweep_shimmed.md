@@ -6,9 +6,9 @@
 
 ## Failures by error id
 
-- `Unknown` — 488
-- `RunMat:UndefinedVariable` — 186
-- `RunMat:ParseError` — 61
+- `Unknown` — 489
+- `RunMat:UndefinedVariable` — 188
+- `RunMat:ParseError` — 58
 - `RunMat:AggregateShapeMismatch` — 12
 - `RunMat:MirLoweringError` — 7
 - `RunMat:MirCallFallbackPolicyUnsupported` — 4
@@ -17,12 +17,12 @@
 
 ## Top failure signatures
 
-- 212 x — Unknown | local may be read before it is assigned
-- 186 x — RunMat:UndefinedVariable | undefined variable 'X'
-- 143 x — Unknown | local may be read before assignment on some control-flow paths
+- 213 x — Unknown | local may be read before it is assigned
+- 188 x — RunMat:UndefinedVariable | undefined variable 'X'
+- 144 x — Unknown | local may be read before assignment on some control-flow paths
 - 88 x — Unknown | brace indexing requires a cell-like value
-- 35 x — Unknown | 
-- 20 x — RunMat:ParseError | expected 'X'
+- 34 x — Unknown | 
+- 17 x — RunMat:ParseError | expected 'X'
 - 13 x — RunMat:ParseError | expected identifier
 - 12 x — RunMat:AggregateShapeMismatch | tensor literal rows must have consistent column counts
 - 8 x — RunMat:ParseError | expected identifier or 'X'
